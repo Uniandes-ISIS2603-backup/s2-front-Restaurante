@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "restaurante-web": {
+    "s2-front-Restaurante": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/restaurante-web",
+            "outputPath": "dist/s2-front-Restaurante",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "restaurante-web:build"
+            "browserTarget": "s2-front-Restaurante:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "restaurante-web:build:production"
+              "browserTarget": "s2-front-Restaurante:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "restaurante-web:build"
+            "browserTarget": "s2-front-Restaurante:build"
           }
         },
         "test": {
@@ -95,7 +95,7 @@
         }
       }
     },
-    "restaurante-web-e2e": {
+    "s2-front-Restaurante-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,11 +103,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "restaurante-web:serve"
+            "devServerTarget": "s2-front-Restaurante:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "restaurante-web:serve:production"
+              "devServerTarget": "s2-front-Restaurante:serve:production"
             }
           }
         },
@@ -123,5 +123,5 @@
       }
     }
   },
-  "defaultProject": "restaurante-web"
+  "defaultProject": "s2-front-Restaurante"
 }
