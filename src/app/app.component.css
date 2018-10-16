@@ -1,0 +1,12 @@
+.navbar-brand{
+    margin-left: 5%;
+    margin-right: 20%;
+}
+.navbar-nav > li{
+    margin-left:60px;
+    margin-right:60px;
+  }
+
+.btn-primary{
+      margin-right: 40px;
+  }
