@@ -1,3 +1,16 @@
-<p>
-  domicilio-list works!
-</p>
+<div class="container-fluid">
+  <div class="col-md-2">
+      <table class="table table-striped">
+          <thead class="thead-dark">
+              <tr>
+                  <th colspan="2">Domicilios</th>    
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor = "let domicilio of domicilios">
+                  <td>{{domicilio.name}}</td>
+                  <td>{{domicilio.name}}</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
