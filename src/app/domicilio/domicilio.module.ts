@@ -6,6 +6,7 @@ import { DomicilioListComponent } from './domicilio-list/domicilio-list.componen
   imports: [
     CommonModule
   ],
-  declarations: [DomicilioListComponent]
+  declarations: [DomicilioListComponent],
+  exports: [DomicilioListComponent]
 })
 export class DomicilioModule { }

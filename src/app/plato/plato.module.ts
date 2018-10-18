@@ -6,6 +6,7 @@ import { PlatoListComponent } from './plato-list/plato-list.component';
   imports: [
     CommonModule
   ],
-  declarations: [PlatoListComponent]
+  declarations: [PlatoListComponent],
+  exports: [PlatoListComponent]
 })
 export class PlatoModule { }

@@ -6,6 +6,7 @@ import { SucursalListComponent } from './sucursal-list/sucursal-list.component';
   imports: [
     CommonModule
   ],
-  declarations: [SucursalListComponent]
+  declarations: [SucursalListComponent],
+  exports: [SucursalListComponent]
 })
 export class SucursalModule { }
