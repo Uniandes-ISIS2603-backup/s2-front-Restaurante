@@ -11,7 +11,7 @@ export class ReservaListComponent implements OnInit {
 
   constructor( private reservaService: ReservaService) { }
   
-  reservas: Reserva[];
+  public reservas: Reserva[];
   
   getReservas(): void {
         this.reservaService.getReservas().subscribe(reservas => this.reservas = reservas);

@@ -1,15 +1,20 @@
 [{
   "id": 1,
-  "name": "Oveja Negra"
+  "name": "Fito Torres",
+  "fecha": "2018-02-01T21:10:56"
+   
 }, {
   "id": 2,
-  "name": "Siruela"
+  "name": "Nombre genérico",
+  "fecha": "2019-02-01T21:10:56"
 },
 {
   "id": 3,
-  "name": "Plaza y Janes"
+  "name": "Carlos Santana",
+  "fecha": "2012-02-01T21:10:56"
 },
 {
   "id": 4,
-  "name": "Norma"
+  "name": "Maria Puerta",
+  "fecha": "2020-02-01T21:10:56"
 }]

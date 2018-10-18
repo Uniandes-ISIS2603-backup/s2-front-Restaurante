@@ -12,7 +12,15 @@ export interface Reserva {
     * The editorial's name
     */
     name: string;
-  
+    
+    /**
+    * The reserva name
+    */
+    fecha: string;
+    
+    
+    
+    
 
 }
 
