@@ -1,0 +1,14 @@
+[{
+    "id":1,
+    "nombre":"Pepito",
+    "metodoPago":"Tarjeta"
+},{
+    "id":2,
+    "nombre":"Carla",
+    "metodoPago":"Efectivo"
+},{
+    "id":3,
+    "nombre":"Pablo",
+    "metodoPago":"Tarjeta"
+}
+]
