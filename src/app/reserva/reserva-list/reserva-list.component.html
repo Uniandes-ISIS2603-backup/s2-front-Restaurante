@@ -3,14 +3,16 @@
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
-                    <th>Reserva Name</th>    
+                    <th colspan="2">Reservas</th>    
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor = "let reserva of reservas">
                     <td>{{reserva.name}}</td>
+                    <td>{{reserva.fecha}}</td>
                   
                 </tr>
+                
             </tbody>
         </table>
     </div>
