@@ -6,7 +6,7 @@ import { ClienteService } from '../cliente.service';
  * The component for the list of editorials in the BookStore
  */
 @Component({
-    selector: 'app-list-cliente',
+    selector: 'app-cliente-list',
     templateUrl: './cliente-list.component.html', 
 })
 export class ClienteListComponent implements OnInit {

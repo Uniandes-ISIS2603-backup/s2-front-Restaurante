@@ -1,16 +1,21 @@
 <div class="container-fluid">
-  <div class="col-md-2">
-      <table class="table table-striped">
-          <thead class="thead-dark">
-              <tr>
-                  <th>Cliente Name</th>    
-              </tr>
-          </thead>
-          <tbody>
-              <tr *ngFor = "let cliente of clientes">
-                  <td>{{cliente.name}}</td>
-                
-              </tr>
-          </tbody>
-      </table>
-  </div>
+    <div class="col-md-3">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th colspan="3">Clientes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Método Pago</th>
+                <tr *ngFor="let cliente of clientes">
+                    <td>{{cliente.id}}</td>
+                    <td>{{cliente.nombre}}</td>
+                    <td>{{cliente.metodoPago}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
