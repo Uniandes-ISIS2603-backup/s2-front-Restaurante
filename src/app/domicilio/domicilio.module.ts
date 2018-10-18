@@ -1,0 +1,12 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { DomicilioListComponent } from './domicilio-list/domicilio-list.component';
+
+@NgModule({
+  imports: [
+    CommonModule
+  ],
+  declarations: [DomicilioListComponent],
+  exports: [DomicilioListComponent]
+})
+export class DomicilioModule { }
