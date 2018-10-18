@@ -1,15 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { Plato } from '../plato';
+import { PlatoService } from '../plato.service';
 
 @Component({
   selector: 'app-plato-list',
   templateUrl: './plato-list.component.html',
-  styleUrls: ['./plato-list.component.css']
 })
 export class PlatoListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private platoService: PlatoService)
+   { }
+  
+   platos: Plato[]
+
+   getPlatos(): void {
+    this.platoService.getPlatos().subscribe(platos => this.platos = platos);
+   }
 
   ngOnInit() {
+    this.getPlatos();
   }
 
 }
