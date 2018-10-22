@@ -8,6 +8,7 @@ import { ReservaModule } from './reserva/reserva.module';
 import { PlatoModule } from './plato/plato.module';
 import { SucursalModule } from './sucursal/sucursal.module';
 import { DomicilioModule } from './domicilio/domicilio.module';
+import { MesaModule } from './mesa/mesa.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DomicilioModule } from './domicilio/domicilio.module';
     ReservaModule,
     PlatoModule,
     SucursalModule,
-    DomicilioModule
+    DomicilioModule,
+    MesaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
