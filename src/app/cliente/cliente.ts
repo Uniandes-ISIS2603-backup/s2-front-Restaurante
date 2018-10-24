@@ -16,7 +16,5 @@ export class Cliente {
      * El método de pago del cliente
      */
     metodoPago : string;
-  
-
 }
 

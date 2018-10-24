@@ -10,15 +10,12 @@ import { SucursalModule } from './sucursal/sucursal.module';
 import { DomicilioModule } from './domicilio/domicilio.module';
 import { MesaModule } from './mesa/mesa.module';
 import { CalificacionModule } from './calificacion/calificacion.module';
-import { CalificacionListComponent } from './calificacion/calificacion-list/calificacion-list.component';
 import { TarjetaModule } from './tarjeta/tarjeta.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CalificacionListComponent,
- 
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +27,8 @@ import { TarjetaModule } from './tarjeta/tarjeta.module';
     SucursalModule,
     DomicilioModule,
     MesaModule, 
-    TarjetaModule
+    TarjetaModule,
+    CalificacionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

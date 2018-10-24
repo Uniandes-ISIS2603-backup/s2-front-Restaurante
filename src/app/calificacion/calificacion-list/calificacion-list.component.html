@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="col-md-3">
+    <div class="col-md-2">
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
@@ -7,11 +7,11 @@
                 </tr>
             </thead>
             <tbody>
-                
+                <th>Id</th>
                 <th>Puntaje</th>
                 <tr *ngFor="let calificacion of calificaciones">
-                    <td>{{calificacion.Puntaje}}</td>
-                    
+                    <td>{{calificacion.id}}</td>
+                    <td>{{calificacion.puntaje}}</td>
             </tbody>
         </table>
     </div>

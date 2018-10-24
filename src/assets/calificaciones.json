@@ -1,8 +1,11 @@
 [{
-    "puntaje" :1
+    "id":1,
+    "puntaje" :2.3
 },{
-    "puntaje" :2
+    "id":2,
+    "puntaje" :4.6
 },{
-    "puntaje" :3
+    "id":3,
+    "puntaje" :3.8
 }
 ]
