@@ -1,39 +1,75 @@
-import { Component, OnInit } from '@angular/core';
-import { Cliente } from '../cliente';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
+
 import { ClienteService } from '../cliente.service';
+import { Cliente } from '../cliente';
+import { ClienteDetail } from '../cliente-detail';
 
 /**
- * The component for the list of editorials in the BookStore
- */
+* The author's list component
+*/
 @Component({
     selector: 'app-cliente-list',
-    templateUrl: './cliente-list.component.html', 
+    templateUrl: './cliente-list.component.html',
+    styleUrls: ['./cliente-list.component.css']
 })
 export class ClienteListComponent implements OnInit {
 
     /**
-     * Constructor for the component
-     * @param clienteService The author's services provider
-     */
-    constructor(private clienteService: ClienteService) { }
+    * Constructor del componente
+    * @param clienteService El proveedor de servicios de cliente
+    */
+    constructor(
+        private clienteService: ClienteService) { }
+
+    /**
+    * La lista de clientes de la aplicación
+    */
+    clientes: Cliente[];
     
     /**
-     * The list of editorials which belong to the BookStore
-     */
-    clientes: Cliente[];
-
+    * El id del cliente que el usuario quiere visualizar
+    */
+    cliente_id: number;
+    
     /**
-     * Asks the service to update the list of editorials
+     * El cliente que el usuario visualiza
      */
+    selectedCliente : Cliente;
+    
+    
+    /**
+    * Muestra el autor
+    */
+    onSelected(cliente_id: number):void {
+        this.cliente_id = cliente_id;
+        this.selectedCliente = new ClienteDetail();
+        this.getClienteDetail();
+    }
+    
+    
+    /**
+    * Actualiza la lista de clientes
+    */
     getClientes(): void {
-        this.clienteService.getClientes().subscribe(clientes => this.clientes = clientes);
+        this.clienteService.getClientes()
+            .subscribe(clientes => {
+                this.clientes = clientes;
+            });
     }
 
+    getClienteDetail(): void {
+        this.clienteService.getClienteDetail(this.cliente_id)
+            .subscribe(selectedCliente => {
+                this.selectedCliente = selectedCliente
+            });
+    }
     /**
-     * This will initialize the component by retrieving the list of editorials from the service
-     * This method will be called when the component is created
-     */
+    * Inicializa el componente retornando la lista de clientes
+    * El método se llama cuando se crea el componente.
+    */
     ngOnInit() {
+        this.selectedCliente = undefined;
+        this.cliente_id = undefined;
         this.getClientes();
     }
 }

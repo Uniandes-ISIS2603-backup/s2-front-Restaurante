@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Cliente } from './cliente';
 import { Observable } from 'rxjs';
+
+import { Cliente } from './cliente';
+import { ClienteDetail } from './cliente-detail';
 
 import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
@@ -30,10 +32,10 @@ export class ClienteService {
     /**
     * Returna el objeto Observable con los detalles de un cliente retornado desde el API.
     * @returns Los detalles del cliente
-    
-   getAuthorDetail(authorId): Observable<AuthorDetail> {
-    return this.http.get<AuthorDetail>(API_URL + authors + '/' + authorId);
+    */
+   getClienteDetail(clienteId): Observable<ClienteDetail> {
+    return this.http.get<ClienteDetail>(API_URL + clientes + '/' + clienteId);
     
 }
-*/
+
 }

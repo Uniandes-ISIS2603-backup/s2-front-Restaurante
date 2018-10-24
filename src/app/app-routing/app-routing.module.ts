@@ -9,12 +9,24 @@ import { ReservaListComponent } from '../reserva/reserva-list/reserva-list.compo
 import { SucursalListComponent } from '../sucursal/sucursal-list/sucursal-list.component';
 import { PlatoListComponent } from '../plato/plato-list/plato-list.component';
 import { CalificacionListComponent } from '../calificacion/calificacion-list/calificacion-list.component';
+import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
 
 const routes: Routes = [
 
   {
     path: 'clientes',
-    component: ClienteListComponent
+    children: [
+      {
+        path: 'list',
+        component: ClienteListComponent,
+        runGuardsAndResolvers: 'always'
+      },
+      {
+        path: ':id',
+        component: ClienteDetailComponent,
+        runGuardsAndResolvers: 'always'
+      }
+    ]
   },
   {
     path: 'domicilios',
