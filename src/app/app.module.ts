@@ -9,10 +9,13 @@ import { PlatoModule } from './plato/plato.module';
 import { SucursalModule } from './sucursal/sucursal.module';
 import { DomicilioModule } from './domicilio/domicilio.module';
 import { MesaModule } from './mesa/mesa.module';
+import { CalificacionModule } from './calificacion/calificacion.module';
+import { CalificacionListComponent } from './calificacion/calificacion-list/calificacion-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CalificacionListComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,7 @@ import { MesaModule } from './mesa/mesa.module';
     PlatoModule,
     SucursalModule,
     DomicilioModule,
-    MesaModule
+    MesaModule, 
   ],
   providers: [],
   bootstrap: [AppComponent]
