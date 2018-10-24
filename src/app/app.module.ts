@@ -11,11 +11,14 @@ import { DomicilioModule } from './domicilio/domicilio.module';
 import { MesaModule } from './mesa/mesa.module';
 import { CalificacionModule } from './calificacion/calificacion.module';
 import { CalificacionListComponent } from './calificacion/calificacion-list/calificacion-list.component';
+import { TarjetaModule } from './tarjeta/tarjeta.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    CalificacionListComponent
+    CalificacionListComponent,
+ 
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,7 @@ import { CalificacionListComponent } from './calificacion/calificacion-list/cali
     SucursalModule,
     DomicilioModule,
     MesaModule, 
+    TarjetaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

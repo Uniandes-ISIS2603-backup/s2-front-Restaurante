@@ -1,7 +1,7 @@
 /**
  * Esta clase contiene la información de un objeto de tipo cliente.
  */
-export interface Cliente {
+export class Cliente {
     /**
     * El id del cliente
     */
