@@ -3,14 +3,18 @@
       <table class="table table-striped">
           <thead class="thead-dark">
               <tr>
-                  <th>Plato puntaje</th>    
+                    <th colspan="2">Plato </th>    
               </tr>
           </thead>
           <tbody>
-              <tr *ngFor = "let plato of plato">
-                  <td>{{plato.puntaje}}</td>
                 
-              </tr>
-          </tbody>
+                <th>Nombre</th>
+                <th>precio</th>
+                <tr *ngFor="let cliente of clientes">
+                    <td>{{plato.nombre}}</td>
+                    <td>{{plato.precio}}</td>
+                    
+                </tr>
+            </tbody>
       </table>
   </div>
