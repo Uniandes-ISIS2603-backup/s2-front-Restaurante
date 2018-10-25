@@ -29,7 +29,13 @@ const routes: Routes = [
   },
   {
     path: 'reservas',
-    component: ReservaListComponent
+        children: [
+            {
+                path: 'list',
+                component: ReservaListComponent
+            }
+          
+        ]
   },
   {
     path: 'sucursales',
