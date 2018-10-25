@@ -6,6 +6,7 @@ import { MesaListComponent } from './mesa-list/mesa-list.component';
   imports: [
     CommonModule
   ],
-  declarations: [MesaListComponent]
+  declarations: [MesaListComponent],
+  exports: [MesaListComponent]
 })
 export class MesaModule { }
