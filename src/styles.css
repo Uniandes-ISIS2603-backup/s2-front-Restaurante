@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
+#inicio{
+    padding-left: 180px;
+}
+
+.navbar-nav > li{
+    padding-left:30px;
+    padding-right:30px;
+}
+
+#list{
+    margin-top: 2%;
+    padding-left: 25%;
+}
+
+

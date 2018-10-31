@@ -17,16 +17,17 @@ const routes: Routes = [
     path: 'clientes',
     children: [
       {
-        path: 'list',
-        component: ClienteListComponent,
-        runGuardsAndResolvers: 'always'
+          path: 'list',
+          component: ClienteListComponent,
+          runGuardsAndResolvers: 'always'
+          
       },
       {
-        path: ':id',
-        component: ClienteDetailComponent,
-        runGuardsAndResolvers: 'always'
+          path: ':id',
+          component: ClienteDetailComponent,
+          runGuardsAndResolvers: 'always'
       }
-    ]
+  ]
   },
   {
     path: 'domicilios',

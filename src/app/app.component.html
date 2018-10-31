@@ -1,29 +1,47 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a id="clientesTag" class="nav-link" routerLink="/clientes">Clientes</a>
-  </li>
-  <li class="nav-item">
-    <a id="domiciliosTag" class="nav-link" routerLink="/domicilios">Domicilios</a>
-  </li>
-  <li class="nav-item">
-    <a id="mesasTag" class="nav-link" routerLink="/mesas">Mesas</a>
-  </li>
-  <li class="nav-item">
-    <a id="platosTag" class="nav-link" routerLink="/platos">Platos</a>
-  </li>
-  <li class="nav-item">
-    <a id="reservasTag" class="nav-link" routerLink="/reservas/list">Reservas</a>
-  </li>
-  <li class="nav-item">
-    <a id="sucursalesTag" class="nav-link" routerLink="/sucursales">Sucursales</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" routerLink="/calificaciones">Calificaciones</a>
-  </li>
-</ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#" style="padding-left: 30px">La Delicia <span style="font-size: .5em">ADMIN</span></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item" id = "inicio">
+        <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/sucursales">Sucursales</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/clientes/list">Clientes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/platos">Platos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/mesas">Mesa</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/calificaciones">Calificaciones</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Servicios
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="/reservas/list">Reservas</a>
+          <a class="dropdown-item" routerLink="/domicilios">Domicilios</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-<div class="list">
-  <router-outlet></router-outlet>
+<div class="container" id="list">
+    <div class="list">
+        <router-outlet></router-outlet>
+      </div>
 </div>
