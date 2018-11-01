@@ -11,12 +11,12 @@ export interface Reserva {
     /**
     * The editorial's name
     */
-    name: string;
+    nombre: string;
     
     /**
     * The reserva name
     */
-    fecha: string;
+    hora: Date;
     
     
     

@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="col-md-2">
+    <div class="col-md-4 ">
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
@@ -8,13 +8,13 @@
             </thead>
             <tbody>
                 
-                <th>Nombre</th>
+                <th>Id</th>
                 <th>Fecha</th>
                
                 
                 <tr *ngFor = "let reserva of reservas">
-                    <td>{{reserva.name}}</td>
-                    <td>{{reserva.fecha}}</td>
+                    <td>{{reserva.id}}</td>
+                    <td>{{reserva.hora}}</td>
                   
                 </tr>
                 

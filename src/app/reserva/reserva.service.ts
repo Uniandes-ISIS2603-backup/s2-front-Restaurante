@@ -3,9 +3,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Reserva } from './reserva';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
-const API_URL = "../../assets/";
-const reservas = 'reservas.json';
+const API_URL = environment.apiURL;
+const reservas = '/reservas';
 
 /**
 * The service provider for everything related to reservas
