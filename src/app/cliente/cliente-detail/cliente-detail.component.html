@@ -1,32 +1,55 @@
-<div class = "container" style="margin-left: 2%">
+<div class="container" style="margin-left: 2%">
   <h3>Acerca de este cliente</h3>
-<table class="table table-dark">
-    <thead>
+
+  <table class="table table-bordered">
+    <thead class="thead-dark">
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th colspan="4" style="text-align: center">Datos</th>
       </tr>
     </thead>
     <tbody>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Método Pago</th>
+      <th>Tarjeta</th>
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <td>{{clienteDetail.id}}</td>
+        <td>{{clienteDetail.nombre}}</td>
+        <td>{{clienteDetail.metodoPago}}</td>
+        <td>df</td>
       </tr>
+    </tbody>
+  </table>
+
+  <table class="table table-dark">
+    <thead>
       <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
+        <th colspan="3" style="text-align: center; margin-top: 2%">Reservas</th>
       </tr>
+    </thead>
+    <tbody>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Hora</th>
+      <tr *ngFor="let reserva of reservas">
+        <td>{{reserva.id}}</td>
+        <td>{{reserva.nombre}</td>
+        <td>{{reserva.hora}</td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="table table-dark" style="margin-top: 2%">
+    <thead>
       <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
+        <th colspan="2" style="text-align: center">Domicilios</th>
+      </tr>
+    </thead>
+    <tbody>
+      <th>Id</th>
+      <th>Nombre</th>
+      <tr *ngFor="let domicilio of domicilios">
+        <td>{{domicilio.id}}</td>
+        <td>{{domicilio.name}</td>
       </tr>
     </tbody>
   </table>

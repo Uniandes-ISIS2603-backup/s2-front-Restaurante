@@ -29,3 +29,7 @@
 .navbar-brand{
     padding-bottom: 0;
 }
+
+th{
+    text-align: center;
+}

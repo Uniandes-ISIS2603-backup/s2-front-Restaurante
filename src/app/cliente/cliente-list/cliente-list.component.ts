@@ -25,32 +25,32 @@ export class ClienteListComponent implements OnInit {
     * La lista de clientes de la aplicación
     */
     clientes: Cliente[];
-    
+
     /**
     * El id del cliente que el usuario quiere visualizar
     */
     cliente_id: number;
-    
+
     /**
      * El cliente que el usuario visualiza
      */
-    selectedCliente : Cliente;
-    
+    selectedCliente: Cliente;
+
     /**
     * Shows or hides the author-create-component
     */
-   showCreate: boolean;
-    
+    showCreate: boolean;
+
     /**
     * Muestra el autor
     */
-    onSelected(cliente_id: number):void {
+    onSelected(cliente_id: number): void {
         this.cliente_id = cliente_id;
         this.selectedCliente = new ClienteDetail();
         this.getClienteDetail();
     }
-    
-    
+
+
     /**
     * Actualiza la lista de clientes
     */
@@ -77,14 +77,10 @@ export class ClienteListComponent implements OnInit {
         this.getClientes();
     }
 
-     /**
-    * Shows or hides the create component
-    */
-   showHideCreate(): void {
-    if (this.selectedCliente) {
-        this.selectedCliente = undefined;
-        this.cliente_id = undefined;
+    /**
+   * Shows or hides the create component
+   */
+    showHideCreate(): void {
+        this.showCreate = !this.showCreate;
     }
-    this.showCreate = !this.showCreate;
-}
 }
