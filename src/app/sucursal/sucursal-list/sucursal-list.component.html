@@ -1,3 +1,35 @@
-<p>
-  sucursal-list works!
-</p>
+<div class="container-fluid" style="margin: 2% 0 0% 2%">
+    <h3>Sucursales</h3>
+    <div class="row">
+        <div class="col-md-2">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th colspan="3">Sucursales</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <th>Id</th>
+                    <th>Direccion</th>
+                    <tr *ngFor="let sucursal of sucursales" (click)="onSelected(sucursal.id)">
+                        <td style="cursor: pointer;">{{sucursal.id}}</td>
+                        <td style="cursor: pointer;">{{sucursal.direccion}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3" id="detail">
+            <div *ngIf="selectedSucursal">
+                <app-sucursal-detail [sucursalDetail]="selectedSucursal"></app-sucursal-detail>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                (click)="showHideCreate()">Crear
+                una sucursal</button>
+            <div *ngIf="showCreate">
+                <app-sucursal-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-sucursal-create>
+            </div>
+        </div>
+    </div>
+</div>
