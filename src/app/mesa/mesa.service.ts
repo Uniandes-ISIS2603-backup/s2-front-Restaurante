@@ -22,7 +22,7 @@ export class MesaService {
     }
 
    
-   getMesaDetail(mesaId): Observable<MesaDetail> {
+    getMesaDetail(mesaId): Observable<MesaDetail> {
     return this.http.get<MesaDetail>(API_URL + mesas + '/' + mesaId);
     
 }
