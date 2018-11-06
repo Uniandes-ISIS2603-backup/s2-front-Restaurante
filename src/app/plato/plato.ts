@@ -3,16 +3,17 @@
 * This class represents an editorial of the BookStore. 
 * It contains all the information relevant to the editorial.
 */
-export interface Plato {
+export class Plato {
     /**
     * The editorial's id
     */
-    id: number;
+   id : number;
+    nombre: string;
 
     /**
     * The editorial's name
     */
-    puntaje: string;
+    precio: number;
   
 
 }

@@ -1,0 +1,33 @@
+<div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <br>
+            <h2 class="text-center">Crear un plato</h2>
+            <br>
+            <form name="plato" (ngSubmit)="f.form.valid && createPlato()" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="platoNombre"><b>Nombre</b></label>
+                    <input type="text" nombre="platoNombre" class="form-control" id="platoNombre" [(ngModel)]="plato.nombre"
+                        #platoNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && platoNombre.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Falta el nombre del plato</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="platoPrecio"><b>Precio</b></label>
+                    <div [ngClass]="{ 'is-invalid': f.submitted && platoPrecio.invalid }">
+                        <input type="text" name="platoPrecio" class="form-control" id="platoPrecio" [(ngModel)]="plato.precio"
+                        #platoPrecio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && platoPrecio.invalid }" required>
+                        <div class="invalid-feedback">
+                            <div>Falta el precio del plato</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-inline justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <div class="divider"></div>
+                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
