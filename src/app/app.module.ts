@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClienteModule } from './cliente/cliente.module';
 import { ReservaModule } from './reserva/reserva.module';
 import { PlatoModule } from './plato/plato.module';
@@ -21,16 +23,24 @@ import { TarjetaModule } from './tarjeta/tarjeta.module';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
+    BrowserAnimationsModule,
     ClienteModule,
     ReservaModule,
     PlatoModule,
     SucursalModule,
     DomicilioModule,
-    MesaModule, 
+    MesaModule,
     TarjetaModule,
     CalificacionModule
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

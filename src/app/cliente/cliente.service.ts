@@ -44,8 +44,8 @@ export class ClienteService {
     * @param author The new author
     * @returns The confirmation that the author was created
     */
-    createCliente(cliente): Observable<boolean> {
-        return this.http.post<boolean>(API_URL + clientes, cliente);
+    createCliente(cliente): Observable<Cliente> {
+        return this.http.post<Cliente>(API_URL + clientes, cliente);
     }
     
 }

@@ -42,17 +42,16 @@ export class ClienteCreateComponent implements OnInit {
     /**
     * Creates an author
     */
-    createAuthor(): void {
-        var cliente_create = {
-            name: this.cliente.name,
-            metodoPago: this.cliente.metodoPago
-        };
-        this.clienteService.createCliente(cliente_create)
-            .subscribe(() => {
-                this.create.emit();
-                this.toastrService.success("El cliente fue creado", "Creación de cliente");
-            });
-    }
+   createCliente(): Cliente {
+    console.log(this.cliente);
+    this.clienteService.createCliente(this.cliente)
+        .subscribe((cliente) => {
+            this.cliente = cliente;
+            this.create.emit();
+            this.toastrService.success("El cliente fue creado", "Creación de cliente");
+        });
+        return this.cliente;
+}
 
     /**
     * Emits the signal to tell the parent component that the

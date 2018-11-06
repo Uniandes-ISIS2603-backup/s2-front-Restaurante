@@ -36,6 +36,10 @@ export class ClienteListComponent implements OnInit {
      */
     selectedCliente : Cliente;
     
+    /**
+    * Shows or hides the author-create-component
+    */
+   showCreate: boolean;
     
     /**
     * Muestra el autor
@@ -72,4 +76,15 @@ export class ClienteListComponent implements OnInit {
         this.cliente_id = undefined;
         this.getClientes();
     }
+
+     /**
+    * Shows or hides the create component
+    */
+   showHideCreate(): void {
+    if (this.selectedCliente) {
+        this.selectedCliente = undefined;
+        this.cliente_id = undefined;
+    }
+    this.showCreate = !this.showCreate;
+}
 }
