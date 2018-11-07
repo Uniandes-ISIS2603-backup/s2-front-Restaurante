@@ -10,7 +10,7 @@ import {Cliente} from '../../cliente/cliente';
 import { Sucursal } from '../../sucursal/sucursal';
 import { Mesa } from '../../mesa/mesa';
 import { MesaService } from '../../mesa/mesa.service';
-
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-reserva-create',
@@ -31,9 +31,12 @@ export class ReservaCreateComponent implements OnInit {
   ) { }
 
   reserva: Reserva;
+  hora: number;
+  minuto: number;
   clientes: Cliente[];
   sucursales: Sucursal[];
   mesas: Mesa[];
+
 
   /**
   * The output which tells the parent component
@@ -46,6 +49,29 @@ export class ReservaCreateComponent implements OnInit {
   * that the user created a new editorial
   */
   @Output() create = new EventEmitter();
+
+
+  ctrl = new FormControl('', (control: FormControl) => {
+    const value = control.value;
+
+    if (!value) {
+      return null;
+    }
+
+    if (value.hour < 12) {
+      return {tooEarly: true};
+    }
+    if ((value.hour > 15 && value.hour < 18) || value.hour > 22 {
+      return {tooLate: true};
+    }
+    
+
+    console.log(value.hour);
+    console.log(value.minute); 
+    this.hora = value.hour;
+    this.minuto = value.minute;
+    return null;
+  });
 
 
   getClientes(): void {
@@ -81,7 +107,7 @@ export class ReservaCreateComponent implements OnInit {
   }
 
   createReserva(): Reserva {
-    let dateB: Date = new Date(this.reserva.hora.year, this.reserva.hora.month - 1, this.reserva.hora.day);
+    let dateB: Date = new Date(this.reserva.hora.year, this.reserva.hora.month - 1, this.reserva.hora.day, this.hora, this.minuto);
     console.log(dateB);
     this.reserva.hora = this.dp.transform(dateB, 'yyyy-MM-ddTHH:mm:ss');
     this.reservaService.createReserva(this.reserva)
