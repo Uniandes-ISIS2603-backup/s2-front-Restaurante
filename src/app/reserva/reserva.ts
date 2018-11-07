@@ -1,8 +1,8 @@
 /**
-* This class represents an editorial of the BookStore. 
-* It contains all the information relevant to the editorial.
+* This class represents an reserva of the Restaourant.
+* It contains all the information relevant to the reserva.
 */
-export interface Reserva {
+export class Reserva {
     /**
     * The editorial's id
     */
@@ -11,16 +11,11 @@ export interface Reserva {
     /**
     * The editorial's name
     */
-    nombre: string;
-    
+    cantidadPersonas: number;
+
     /**
     * The reserva name
     */
     hora: Date;
-    
-    
-    
-    
 
 }
-

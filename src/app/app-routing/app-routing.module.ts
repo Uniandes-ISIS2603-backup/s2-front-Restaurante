@@ -10,7 +10,7 @@ import { SucursalListComponent } from '../sucursal/sucursal-list/sucursal-list.c
 import { PlatoListComponent } from '../plato/plato-list/plato-list.component';
 import { CalificacionListComponent } from '../calificacion/calificacion-list/calificacion-list.component';
 import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
-
+import { ReservaDetailComponent } from '../reserva/reserva-detail/reserva-detail.component';
 const routes: Routes = [
 
   {
@@ -47,6 +47,11 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: ReservaListComponent
+            },
+            {
+                path: ':id',
+                component: ReservaDetailComponent,
+                runGuardsAndResolvers: 'always'
             }
           
         ]
