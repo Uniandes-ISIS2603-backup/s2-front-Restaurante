@@ -48,7 +48,7 @@ export class SucursalCreateComponent implements OnInit {
         .subscribe((sucursal) => {
             this.sucursal = sucursal;
             this.create.emit();
-            this.toastrService.success("La sucursal fue creada", "Creación de la sucursal");
+            this.toastrService.success("La sucursal fue creada, La creacion fue exitosa");
         });
         return this.sucursal;
 }

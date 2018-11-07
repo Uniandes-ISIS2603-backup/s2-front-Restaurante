@@ -1,23 +1,39 @@
 <div class="container-fluid" style="margin: 2% 0 0% 2%">
     <h3>Sucursales</h3>
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-4">
             <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th colspan="3">Sucursales</th>
+                        <th colspan="4">Sucursales</th>
                     </tr>
                 </thead>
                 <tbody>
                     <th>Id</th>
                     <th>Direccion</th>
-                    <tr *ngFor="let sucursal of sucursales" (click)="onSelected(sucursal.id)">
-                        <td style="cursor: pointer;">{{sucursal.id}}</td>
-                        <td style="cursor: pointer;">{{sucursal.direccion}}</td>
+                    <th>Mesas</th>
+                    <th>Calificaciones</th>
+                    <tr *ngFor="let sucursal of sucursales">
+                        <td>{{sucursal.id}}</td>
+                        <td>{{sucursal.direccion}}</td>
+                        <td><button type="button" class="btn btn-default" (click)="abrirMesas">Mesas</button></td>     
+                        <script>
+                        function abrirMesas() {
+                            
+                        }
+                         </script>
+                        <td><button type="button" class="btn btn-default" (click)="abrirCalificaciones()">Calificaciones</button></td>
+                        <script>
+                        function abrirCalificaciones() {
+                            
+                        }
+                         </script>
                     </tr>
                 </tbody>
             </table>
         </div>
+        
+
         <div class="col-md-3" id="detail">
             <div *ngIf="selectedSucursal">
                 <app-sucursal-detail [sucursalDetail]="selectedSucursal"></app-sucursal-detail>
