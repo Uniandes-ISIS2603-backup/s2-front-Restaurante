@@ -30,6 +30,8 @@ export class ClienteDetailComponent implements OnInit {
   * El id del cliente que viene en el path get .../clientes/cliente_id
   */
   cliente_id: number;
+
+ 
   /**
   * El método que obtiene el cliente cuyos detalles quieren visualizarse.
   */

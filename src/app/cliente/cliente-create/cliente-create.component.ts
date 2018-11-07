@@ -27,6 +27,8 @@ export class ClienteCreateComponent implements OnInit {
     */
     cliente: Cliente;
 
+    success : boolean;
+
     /**
     * The output which tells the parent component
     * that the user no longer wants to create an author
@@ -48,6 +50,7 @@ export class ClienteCreateComponent implements OnInit {
         .subscribe((cliente) => {
             this.cliente = cliente;
             this.create.emit();
+            this.success = true;
         });
         return this.cliente;
 }
@@ -65,8 +68,7 @@ export class ClienteCreateComponent implements OnInit {
     */
     ngOnInit() {
         this.cliente = new Cliente();
+        this.success = false;
     }
-    
-
 }
 

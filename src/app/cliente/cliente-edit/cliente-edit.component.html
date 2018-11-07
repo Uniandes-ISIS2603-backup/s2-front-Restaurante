@@ -1,0 +1,41 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Editar cliente</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form name="cliente" (ngSubmit)="f.form.valid && editCliente()" #f="ngForm" novalidate style="margin: 0 4% 0 4%;">
+              <div class="form-group">
+                  <label for="clienteNombre"><b>Nombre</b></label>
+                  <input type="text" name="clienteNombre" class="form-control" id="clienteNombre" [(ngModel)]="cliente.nombre"
+                      #clienteNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteNombre.invalid }" required>
+                  <div class="invalid-feedback">
+                      <div>Falta el nombre del cliente</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="clienteMetodoPago"><b>Método de pago</b></label>
+                  <div [ngClass]="{ 'is-invalid': f.submitted && clienteMetodoPago.invalid }">
+                      <input type="text" name="clienteMetodoPago" class="form-control" id="clienteMetodoPago" [(ngModel)]="cliente.metodoPago"
+                          #clienteMetodoPago="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteMetodoPago.invalid }"
+                          required>
+                      <div class="invalid-feedback">
+                          <div>Falta el método de pago del cliente</div>
+                      </div>
+                  </div>
+              </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="cancelEdit()" data-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary" data-dismiss="modal">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>

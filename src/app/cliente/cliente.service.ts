@@ -48,4 +48,11 @@ export class ClienteService {
         return this.http.post<Cliente>(API_URL + clientes, cliente);
     }
     
+    /**
+     * Edita un cliente
+     * @param cliente - cliente con nueva información
+     */
+    editCliente(clienteId : number, cliente : ClienteDetail): Observable<ClienteDetail> {
+        return this.http.put<ClienteDetail>(API_URL + clientes + '/' + clienteId, cliente);
+    }
 }

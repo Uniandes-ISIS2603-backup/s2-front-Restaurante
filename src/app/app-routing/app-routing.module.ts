@@ -34,10 +34,6 @@ const routes: Routes = [
     component: DomicilioListComponent
   },
   {
-    path: 'mesas',
-    component: ClienteListComponent
-  },
-  {
     path: 'platos',
     component: PlatoListComponent
   },

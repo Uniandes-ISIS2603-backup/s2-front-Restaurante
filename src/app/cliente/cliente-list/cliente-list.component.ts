@@ -41,6 +41,10 @@ export class ClienteListComponent implements OnInit {
     */
     showCreate: boolean;
 
+    showInfo : boolean;
+
+    edit : boolean;
+
     /**
     * Muestra el cliente
     */
@@ -65,6 +69,7 @@ export class ClienteListComponent implements OnInit {
         this.clienteService.getClienteDetail(this.cliente_id)
             .subscribe(selectedCliente => {
                 this.selectedCliente = selectedCliente
+                this.showInfo = false;
             });
     }
     /**
@@ -75,6 +80,7 @@ export class ClienteListComponent implements OnInit {
         this.selectedCliente = undefined;
         this.cliente_id = undefined;
         this.getClientes();
+        this.showInfo = true;
     }
 
     /**
@@ -83,4 +89,10 @@ export class ClienteListComponent implements OnInit {
     showHideCreate(): void {
         this.showCreate = !this.showCreate;
     }
+
+    showEdit():void{
+        this.edit = !this.edit;
+    }
+
+
 }

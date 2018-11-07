@@ -1,24 +1,39 @@
 <div class="container-fluid" style="margin: 2% 0 0% 2%">
     <h3>Clientes</h3>
     <div class="row">
-        <div class="col-3">
+        <div class="col-2">
             <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th colspan="3" style="text-align: center">Clientes</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Editar</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <tr *ngFor="let cliente of clientes" (click)="onSelected(cliente.id)">
-                        <td style="cursor: pointer;">{{cliente.id}}</td>
-                        <td style="cursor: pointer;">{{cliente.nombre}}</td>
+                    <tr *ngFor="let cliente of clientes">
+                        <td style="cursor: pointer;" (click)="onSelected(cliente.id)">{{cliente.id}}</td>
+                        <td style="cursor: pointer;" (click)="onSelected(cliente.id)">{{cliente.nombre}}</td>
+                        <td style="cursor: pointer;">
+                            <button type="button" (click)="showEdit(); onSelected(cliente.id)" class="btn btn-link btn-sm"
+                                data-toggle="modal" data-target="#exampleModalCenter">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="col-4">
+        <div class="col-4" id="detail">
+            <div *ngIf="showInfo" class="alert alert-info" role="alert" style="margin: 20% 10% 10% 10%;">
+                <h3>Visualizar información</h3>
+                <p>Oprime alguno de los clientes para ver sus detalles.</p>
+            </div>
+            <div *ngIf="selectedCliente">
+                <app-cliente-detail [clienteDetail]="selectedCliente"></app-cliente-detail>
+            </div>
+        </div>
+        <div class="col-3">
             <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                 (click)="showHideCreate()">Crear
                 un cliente</button>
@@ -26,5 +41,8 @@
                 <app-cliente-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-cliente-create>
             </div>
         </div>
+    </div>
+    <div *ngIf="edit">
+        <app-cliente-edit [cliente]="selectedCliente"></app-cliente-edit>
     </div>
 </div>
