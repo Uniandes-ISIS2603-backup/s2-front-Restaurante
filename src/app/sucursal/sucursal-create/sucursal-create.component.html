@@ -7,7 +7,7 @@
             <form name="sucursal" (ngSubmit)="f.form.valid && createSucursal()" #f="ngForm" novalidate>
                 <div class="form-group">
                     <label for="sucursalDireccion"><b>Direccion</b></label>
-                    <input type="text" direccion="sucursalDireccion" class="form-control" id="sucursalDireccion" [(ngModel)]="sucursal.direccion"
+                    <input type="text" name="sucursalDireccion" class="form-control" id="sucursalDireccion" [(ngModel)]="sucursal.direccion"
                         #sucursalDireccion="ngModel" [ngClass]="{ 'is-invalid': f.submitted && sucursalDireccion.invalid }" required>
                     <div class="invalid-feedback">
                         <div>Falta una direccion</div>
