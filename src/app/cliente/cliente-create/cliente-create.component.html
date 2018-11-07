@@ -1,31 +1,58 @@
 <div style="padding-right: 5%">
-<br>
-<h2 class="text-center">Crear un cliente</h2>
-<br>
-<form name="cliente" (ngSubmit)="f.form.valid && createCliente()" #f="ngForm" novalidate>
-    <div class="form-group">
-        <label for="clienteNombre"><b>Nombre</b></label>
-        <input type="text" name="clienteNombre" class="form-control" id="clienteNombre" [(ngModel)]="cliente.nombre"
-            #clienteNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteNombre.invalid }" required>
-        <div class="invalid-feedback">
-            <div>Falta el nombre del cliente</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="clienteMetodoPago"><b>Método de pago</b></label>
-        <div [ngClass]="{ 'is-invalid': f.submitted && clienteMetodoPago.invalid }">
-            <input type="text" name="clienteMetodoPago" class="form-control" id="clienteMetodoPago" [(ngModel)]="cliente.metodoPago"
-                #clienteMetodoPago="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteMetodoPago.invalid }"
-                required>
+    <br>
+    <h2 class="text-center">Crear un cliente</h2>
+    <br>
+    <form name="cliente" (ngSubmit)="f.form.valid && createCliente()" #f="ngForm" novalidate>
+        <div class="form-group">
+            <label for="clienteNombre"><b>Nombre</b></label>
+            <input type="text" name="clienteNombre" class="form-control" id="clienteNombre" [(ngModel)]="cliente.nombre"
+                #clienteNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteNombre.invalid }" required>
             <div class="invalid-feedback">
-                <div>Falta el método de pago del cliente</div>
+                <div>Falta el nombre del cliente</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="clienteMetodoPago"><b>Método de pago</b></label>
+            <div [ngClass]="{ 'is-invalid': f.submitted && clienteMetodoPago.invalid }">
+                <input type="text" name="clienteMetodoPago" class="form-control" id="clienteMetodoPago" [(ngModel)]="cliente.metodoPago"
+                    #clienteMetodoPago="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteMetodoPago.invalid }"
+                    required>
+                <div class="invalid-feedback">
+                    <div>Falta el método de pago del cliente</div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-inline justify-content-center align-self-center">
+            <button type="submit" class="btn btn-primary">Create</button>
+            <div class="divider"></div>
+            <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+        </div>
+    </form>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
-    <div class="row form-inline justify-content-center align-self-center">
-        <button type="submit" class="btn btn-primary">Create</button>
-        <div class="divider"></div>
-        <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
-    </div>
-</form>
 </div>

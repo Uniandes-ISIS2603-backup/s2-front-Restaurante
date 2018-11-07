@@ -4,9 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { Plato } from './plato';
 import { Observable } from 'rxjs';
 
-//import { environment } from '../../environments/environment';
-const API_URL = "../../assets/";
-const platos = 'platos.json';
+import { environment } from '../../environments/environment';
+const API_URL = environment.apiURL;
+const platos = '/platos';
 
 /**
 * The service provider for everything related to plato

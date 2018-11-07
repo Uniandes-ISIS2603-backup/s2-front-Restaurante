@@ -5,7 +5,7 @@ import { Cliente } from '../cliente';
 import { ClienteDetail } from '../cliente-detail';
 
 /**
-* The author's list component
+* El componente que muestra los clientes
 */
 @Component({
     selector: 'app-cliente-list',
@@ -42,7 +42,7 @@ export class ClienteListComponent implements OnInit {
     showCreate: boolean;
 
     /**
-    * Muestra el autor
+    * Muestra el cliente
     */
     onSelected(cliente_id: number): void {
         this.cliente_id = cliente_id;
@@ -78,7 +78,7 @@ export class ClienteListComponent implements OnInit {
     }
 
     /**
-   * Shows or hides the create component
+   * Muestra u oculta el componente de crear
    */
     showHideCreate(): void {
         this.showCreate = !this.showCreate;

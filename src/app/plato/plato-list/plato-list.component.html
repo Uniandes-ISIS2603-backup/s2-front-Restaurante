@@ -14,7 +14,7 @@
                 <th>Precio</th>
                 <tr *ngFor="let plato of platos" (click)="onSelected(plato.id)">
                     <td style="cursor: pointer;">{{plato.id}}</td>
-                    <td style="cursor: pointer;">{{plato.nombre}}</td>
+                    <td style="cursor: pointer;">{{plato.name}}</td>
                     <td>{{plato.precio}}</td>
                 </tr>
             </tbody>

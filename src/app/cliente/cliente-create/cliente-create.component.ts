@@ -48,7 +48,6 @@ export class ClienteCreateComponent implements OnInit {
         .subscribe((cliente) => {
             this.cliente = cliente;
             this.create.emit();
-            this.toastrService.success("El cliente fue creado", "Creación de cliente");
         });
         return this.cliente;
 }
@@ -67,6 +66,7 @@ export class ClienteCreateComponent implements OnInit {
     ngOnInit() {
         this.cliente = new Cliente();
     }
+    
 
 }
 
