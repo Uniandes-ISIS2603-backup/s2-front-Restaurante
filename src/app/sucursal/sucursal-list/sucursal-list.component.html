@@ -13,45 +13,27 @@
                     <th>Direccion</th>
                     <th>Mesas</th>
                     <th>Calificaciones</th>
-                    <tr *ngFor="let sucursal of sucursales" (click)="onSelected(sucursal.id)">
-                        <td style="cursor: pointer;">{{sucursal.id}}</td>
-                        <td style="cursor: pointer;">{{sucursal.direccion}}</td>
-                        <td><style>
-.button {
-    background-color: #2B3BE4;
-    border: none;
-    color: white;
-    padding: 8px 10px;
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
-}
-.button:hover {
-    background-color: blue;
-}
-</style>
-<button class="button">Mesas</button>
-</td>
-<td><style>
-.button {
-    background-color: #2B3BE4;
-    border: none;
-    color: white;
-    padding: 8px 10px;
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
-}
-.button:hover {
-    background-color: blue;
-}
-</style>
-<button class="button">Calificaciones</button>
-</td>
+                    <tr *ngFor="let sucursal of sucursales">
+                        <td>{{sucursal.id}}</td>
+                        <td>{{sucursal.direccion}}</td>
+                        <td><button type="button" class="btn btn-default" (click)="abrirMesas">Mesas</button></td>     
+                        <script>
+                        function abrirMesas() {
+                            
+                        }
+                         </script>
+                        <td><button type="button" class="btn btn-default" (click)="abrirCalificaciones()">Calificaciones</button></td>
+                        <script>
+                        function abrirCalificaciones() {
+                            
+                        }
+                         </script>
                     </tr>
                 </tbody>
             </table>
         </div>
+        
+
         <div class="col-md-3" id="detail">
             <div *ngIf="selectedSucursal">
                 <app-sucursal-detail [sucursalDetail]="selectedSucursal"></app-sucursal-detail>
