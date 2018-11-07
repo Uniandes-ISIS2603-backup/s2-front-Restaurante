@@ -2,17 +2,34 @@
 * This class represents an editorial of the BookStore. 
 * It contains all the information relevant to the editorial.
 */
-export interface Domicilio {
+export class Domicilio {
+    
     /**
     * The editorial's id
     */
     id: number;
 
     /**
-    * The editorial's name
+    * direccion
     */
-    name: string;
-  
+    dirreccion : String;
+
+    /**
+     * costo
+     */
+    costo: number;
+
+    /**
+    *  cliente
+    */
+    cliente : number;
+
+    /**
+    * sucursal
+    */
+    sucursal : number;
+
+ 
 
 }
 

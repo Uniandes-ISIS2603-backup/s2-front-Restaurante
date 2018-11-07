@@ -18,12 +18,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-4" id="detail">
-            <div *ngIf="selectedCliente">
-                <app-cliente-detail [clienteDetail]="selectedCliente"></app-cliente-detail>
-            </div>
-        </div>
-        <div class="col-3">
+        <div class="col-4">
             <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                 (click)="showHideCreate()">Crear
                 un cliente</button>

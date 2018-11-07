@@ -4,8 +4,10 @@ import { HttpClient } from '@angular/common/http';
 import { Domicilio } from './domicilio';
 import { Observable } from 'rxjs';
 
-const API_URL = "../../assets/";
-const domicilios = 'domicilios.json';
+
+import { environment } from '../../environments/environment';
+const API_URL = environment.apiURL;
+const domicilios = '/domicilios';
 
 /**
 * The service provider for everything related to reservas
@@ -20,8 +22,16 @@ export class DomicilioService {
     constructor(private http: HttpClient) { }
     
   
-    getDomicilio() : Observable<Domicilio[]> {
+    getDomicilios() : Observable<Domicilio[]> {
         return this.http.get<Domicilio[]>(API_URL + domicilios);
     }
     
+     /**
+    * Creates an author
+    * @param author The new author
+    * @returns The confirmation that the author was created
+    */
+   createDomicilio(domicilio): Observable<Domicilio> {
+    return this.http.post<Domicilio>(API_URL + domicilios, domicilio);
+   }
 }
