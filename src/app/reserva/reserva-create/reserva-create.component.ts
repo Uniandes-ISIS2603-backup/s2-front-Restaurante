@@ -40,6 +40,7 @@ export class ReservaCreateComponent implements OnInit {
   sucursales: Sucursal[];
   mesas: MesaDetail[];
   mesasDeSucursal: MesaDetail[];
+  meridian = true;
 
   mesaObserver = x => {
     next: this.getSucursalesFromMesa(x);
@@ -83,7 +84,9 @@ export class ReservaCreateComponent implements OnInit {
     return null;
   });
 
-
+  toggleMeridian() {
+    this.meridian = !this.meridian;
+  }
   getClientes(): void {
     this.clienteService.getClientes()
     .subscribe(clientes => {

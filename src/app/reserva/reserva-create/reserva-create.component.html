@@ -25,8 +25,9 @@
 
 
 
-          <ngb-timepicker [formControl]="ctrl" name="reservaHora"
+          <ngb-timepicker [(ngModel)]="time" [meridian]="meridian" [formControl]="ctrl" name="reservaHora"
              required></ngb-timepicker>
+             
           <div *ngIf="ctrl.valid" class="small form-text text-success">¡Buena elección!</div>
           <div class="small form-text text-danger" *ngIf="!ctrl.valid">
             <div *ngIf="ctrl.errors['required']">Selecciona una hora para tu reserva</div>
@@ -53,7 +54,7 @@
           <label for="reservaSucursal"><b>Sucursal</b></label>
           <select class="custom-select" (input)="log($event)" name="reservaSucursal" id="reservaSucursal" [(ngModel)]="reserva.sucursal.id"
             #reservaSucursal="ngModel" [ngClass]="{ 'is-invalid': f.submitted && reservaSucursal.invalid }" required>
-            <option [value]="sucursal.id" *ngFor="let sucursal of sucursales">{{sucursal.id}}</option>
+            <option [value]="sucursal.id" *ngFor="let sucursal of sucursales">{{sucursal.direccion}}</option>
           </select>
           <div class="invalid-feedback">
             <div>Este campo es obligatorio</div>
@@ -64,7 +65,7 @@
           <label for="reservaMesa"><b>Mesa</b></label>
           <select class="custom-select" name="reservaMesa" id="reservaMesa" [(ngModel)]="reserva.mesa.id" #reservaMesa="ngModel"
             [ngClass]="{ 'is-invalid': f.submitted && reservaMesa.invalid }" required>
-            <option [value]="mesa.id" *ngFor="let mesa of mesasDeSucursal">{{mesa.id}}</option>
+            <option [value]="mesa.id" *ngFor="let mesa of mesasDeSucursal">{{mesa.numero}}</option>
           </select>
           <div class="invalid-feedback">
             <div>Este campo es obligatorio</div>
