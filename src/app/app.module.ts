@@ -42,7 +42,6 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     MesaModule,
     TarjetaModule,
     CalificacionModule,
-    BrowserAnimationsModule,
     NgxPaginationModule,
     NgbModule,
     ModalDialogModule,

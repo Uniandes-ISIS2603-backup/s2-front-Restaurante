@@ -108,6 +108,7 @@ export class ReservaCreateComponent implements OnInit {
   }
 
   createReserva(): Reserva {
+    this.toastrService.info('Se está creando la reserva', 'Crear Reserva', {timeOut: 2000, progressBar: true});
     let dateB: Date = new Date(this.reserva.hora.year, this.reserva.hora.month - 1, this.reserva.hora.day, this.hora, this.minuto);
     console.log(dateB);
     this.reserva.hora = this.dp.transform(dateB, 'yyyy-MM-ddTHH:mm:ss');
@@ -115,9 +116,11 @@ export class ReservaCreateComponent implements OnInit {
     .subscribe(reserva => {
       this.reserva.id = reserva.id;
       this.router.navigate(['/reservas/' + reserva.id]);
+      this.toastrService.success('La reserva se ha creado exitosamente', 'Crear Reserva')
     }, err => {
       this.toastrService.error(err, 'Error');
     });
+    
     return this.reserva;
   }
 
