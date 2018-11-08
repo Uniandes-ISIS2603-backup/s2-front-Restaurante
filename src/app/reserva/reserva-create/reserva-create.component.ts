@@ -61,7 +61,7 @@ export class ReservaCreateComponent implements OnInit {
     if (value.hour < 12) {
       return {tooEarly: true};
     }
-    if ((value.hour > 15 && value.hour < 18) || value.hour > 22 {
+    if ((value.hour > 15 && value.hour < 18) || value.hour > 22) {
       return {tooLate: true};
     }
     
