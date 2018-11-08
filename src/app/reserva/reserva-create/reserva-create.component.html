@@ -51,7 +51,7 @@
 
         <div class="form-group">
           <label for="reservaSucursal"><b>Sucursal</b></label>
-          <select class="custom-select" name="reservaSucursal" id="reservaSucursal" [(ngModel)]="reserva.sucursal.id"
+          <select class="custom-select" (input)="log($event)" name="reservaSucursal" id="reservaSucursal" [(ngModel)]="reserva.sucursal.id"
             #reservaSucursal="ngModel" [ngClass]="{ 'is-invalid': f.submitted && reservaSucursal.invalid }" required>
             <option [value]="sucursal.id" *ngFor="let sucursal of sucursales">{{sucursal.id}}</option>
           </select>
@@ -64,7 +64,7 @@
           <label for="reservaMesa"><b>Mesa</b></label>
           <select class="custom-select" name="reservaMesa" id="reservaMesa" [(ngModel)]="reserva.mesa.id" #reservaMesa="ngModel"
             [ngClass]="{ 'is-invalid': f.submitted && reservaMesa.invalid }" required>
-            <option [value]="mesa.id" *ngFor="let mesa of mesas">{{mesa.id}}</option>
+            <option [value]="mesa.id" *ngFor="let mesa of mesasDeSucursal">{{mesa.id}}</option>
           </select>
           <div class="invalid-feedback">
             <div>Este campo es obligatorio</div>

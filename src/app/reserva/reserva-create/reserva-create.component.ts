@@ -11,6 +11,9 @@ import { Sucursal } from '../../sucursal/sucursal';
 import { Mesa } from '../../mesa/mesa';
 import { MesaService } from '../../mesa/mesa.service';
 import {FormControl} from '@angular/forms';
+import { MesaDetail } from 'src/app/mesa/mesa-detail';
+import { observe } from "rxjs-observe";
+
 
 @Component({
   selector: 'app-reserva-create',
@@ -35,8 +38,12 @@ export class ReservaCreateComponent implements OnInit {
   minuto: number;
   clientes: Cliente[];
   sucursales: Sucursal[];
-  mesas: Mesa[];
+  mesas: MesaDetail[];
+  mesasDeSucursal: MesaDetail[];
 
+  mesaObserver = x => {
+    next: this.getSucursalesFromMesa(x);
+  }
 
   /**
   * The output which tells the parent component
@@ -50,7 +57,10 @@ export class ReservaCreateComponent implements OnInit {
   */
   @Output() create = new EventEmitter();
 
-
+  log(event) {
+    console.log(event.target.value);
+    this.getSucursalesFromMesa(event.target.value);
+  }
   ctrl = new FormControl('', (control: FormControl) => {
     const value = control.value;
 
@@ -90,6 +100,10 @@ export class ReservaCreateComponent implements OnInit {
     }, err => {
       this.toastrService.error(err, 'Error');
     });
+  }
+
+  getSucursalesFromMesa(idSucursal) {
+    this.mesasDeSucursal = this.mesas.filter(mesaa => mesaa.sucursal.id == idSucursal);
   }
 
   getMesas(): void {

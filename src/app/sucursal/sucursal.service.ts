@@ -4,12 +4,12 @@ import { HttpClient } from '@angular/common/http';
 
 import { Sucursal } from './sucursal';
 import { SucursalDetail } from './sucursal-detail';
-
+import { MesaDetail } from '../mesa/mesa-detail'
 
 import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
 const sucursales = '/sucursales';
-
+const mesas = '/mesas';
 
 /**
 * The service provider for everything related to authors
@@ -46,6 +46,10 @@ export class SucursalService {
     */
     createSucursal(sucursal): Observable<Sucursal> {
         return this.http.post<Sucursal>(API_URL + sucursales, sucursal);
+    }
+
+    getMesasDeUnaSucursal(sucursalId): Observable<MesaDetail[]>{
+        return this.http.get<MesaDetail[]>(API_URL + sucursales + '/' + sucursalId + mesas);
     }
     
 }

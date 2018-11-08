@@ -1,3 +1,5 @@
+import { Sucursal } from "../sucursal/sucursal";
+
 /**
  * Esta clase contiene la información de un objeto de tipo mesa.
  */
@@ -12,5 +14,7 @@ export class Mesa {
      * El numero de la mesa
      */
     numero : number;
+
+    sucursal: Sucursal;
 }
 
