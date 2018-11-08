@@ -10,7 +10,7 @@ export class Cliente {
     /**
     * El nombre del cliente
     */
-    name: string;
+    nombre: string;
 
     /**
      * El método de pago del cliente

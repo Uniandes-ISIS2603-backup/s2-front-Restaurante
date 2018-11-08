@@ -102,6 +102,7 @@ export class ReservaCreateComponent implements OnInit {
   }
 
   cancelCreation(): void {
+    this.cancel.emit();
     this.toastrService.warning('The reserva wasn\'t created', 'Reserva creation');
     this.router.navigate(['/reservas/list']);
   }

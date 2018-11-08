@@ -75,7 +75,7 @@
           <label for="reservaCliente"><b>Cliente</b></label>
           <select class="custom-select" name="reservaCliente" id="reservaCliente" [(ngModel)]="reserva.cliente.id"
             #reservaCliente="ngModel" [ngClass]="{ 'is-invalid': f.submitted && reservaCliente.invalid }" required>
-            <option [value]="cliente.id" *ngFor="let cliente of clientes">{{cliente.id}}</option>
+            <option [value]="cliente.id" *ngFor="let cliente of clientes">{{cliente.nombre}}</option>
           </select>
           <div class="invalid-feedback">
             <div>El cliente es obligatorio</div>
