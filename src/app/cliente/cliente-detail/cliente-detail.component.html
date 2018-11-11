@@ -20,20 +20,22 @@
     </tbody>
   </table>
 
-  <table class="table table-dark">
-    <thead>
+  <table class="table table-striped ">
+    <thead class="thead-dark">
       <tr>
-        <th colspan="3" style="text-align: center; margin-top: 2%">Reservas</th>
+        <th colspan="4" style="text-align: center; margin-top: 2%">Reservas</th>
       </tr>
     </thead>
     <tbody>
       <th>Id</th>
-      <th>Nombre</th>
-      <th>Hora</th>
-      <tr *ngFor="let reserva of reservas">
+      <th>Sucursal</th>
+      <th>Fecha</th>
+      <th>Mesa</th>
+      <tr *ngFor="let reserva of clienteDetail.reservas">
         <td>{{reserva.id}}</td>
-        <td>{{reserva.nombre}</td>
-        <td>{{reserva.hora}</td>
+        <td>{{reserva.sucursal.direccion  }}</td>
+        <td>{{reserva.hora  | date:"M/d/yy - h:mm a"}}</td>
+        <td>{{reserva.mesa.numero}}</td>
       </tr>
     </tbody>
   </table>
@@ -46,7 +48,7 @@
     <tbody>
       <th>Id</th>
       <th>Nombre</th>
-      <tr *ngFor="let domicilio of domicilios">
+      <tr *ngFor="let domicilio of clienteDetail.domicilios">
         <td>{{domicilio.id}}</td>
         <td>{{domicilio.name}</td>
       </tr>
