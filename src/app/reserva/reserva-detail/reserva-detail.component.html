@@ -2,6 +2,6 @@
     <div class="container-fluid">
         <p class="h3 p-3">ID: {{reservaDetail.id}}</p>
         <p class="h3 p-3">Cantidad Personas: {{reservaDetail.cantidadPersonas}}</p>
-        <p class="h3 p-3">Hora: {{reservaDetail.hora}}</p>
+        <p class="h3 p-3">Hora: {{reservaDetail.hora | date:"M/d/yy - h:mm a"}}</p>
     </div>
 </div>

@@ -26,7 +26,7 @@
                         <td style="cursor: pointer;">
                             <dd class="figure-caption" routerLink="/reservas/{{reserva.id}}">{{reserva.id}}</dd>
                         </td>
-                        <td>{{reserva.hora}}</td>
+                        <td>{{reserva.hora | date:"M/d/yy - h:mm a"}}</td>
                         <td>{{reserva.cantidadPersonas}}</td>
 
                     </tr>

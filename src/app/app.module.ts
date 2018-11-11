@@ -19,10 +19,14 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { MapComponent } from './map/map.component';
+import { FormsModule } from '@angular/forms';
+import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,11 +47,14 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     TarjetaModule,
     CalificacionModule,
     NgxPaginationModule,
-    NgbModule,
+    NgbModule.forRoot(),
     ModalDialogModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    FormsModule,
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyAgjJAPC_F6TF2Cv7Dj0fcDkBPdbFY54Rg'})
   ],
   providers: [
+    GoogleMapsAPIWrapper,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpErrorInterceptor,
@@ -56,4 +63,5 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+ }
