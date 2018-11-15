@@ -5,7 +5,7 @@
             <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th colspan="4">Sucursales</th>
+                        <th colspan="5">Sucursales</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -13,10 +13,11 @@
                     <th>Direccion</th>
                     <th>Mesas</th>
                     <th>Calificaciones</th>
+                    <th>Platos</th>
                     <tr *ngFor="let sucursal of sucursales">
                         <td>{{sucursal.id}}</td>
                         <td>{{sucursal.direccion}}</td>
-                        <td><button type="button" class="btn btn-default" (click)="abrirMesas">Mesas</button></td>     
+                        <td><button type="button" class="btn btn-default" (click)="abrirMesas()">Mesas</button></td>     
                         <script>
                         function abrirMesas() {
                             
@@ -25,6 +26,13 @@
                         <td><button type="button" class="btn btn-default" (click)="abrirCalificaciones()">Calificaciones</button></td>
                         <script>
                         function abrirCalificaciones() {
+                            
+                        }
+                         </script>
+                         
+                        <td><button type="button" class="btn btn-default" (click)="abrirPlatos()">Platos</button></td>     
+                        <script>
+                        function abrirPlatos() {
                             
                         }
                          </script>
