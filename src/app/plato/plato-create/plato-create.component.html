@@ -7,8 +7,8 @@
             <form name="plato" (ngSubmit)="f.form.valid && createPlato()" #f="ngForm" novalidate>
                 <div class="form-group">
                     <label for="platoNombre"><b>Nombre</b></label>
-                    <input type="text" nombre="platoNombre" class="form-control" id="platoNombre" [(ngModel)]="plato.nombre"
-                        #platoNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && platoNombre.invalid }" required>
+                    <input type="text" name="platoNombre" class="form-control" id="platoNombre" [(ngModel)]="plato.name"
+                    #platoNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && platoPrecio.invalid }" required>
                     <div class="invalid-feedback">
                         <div>Falta el nombre del plato</div>
                     </div>

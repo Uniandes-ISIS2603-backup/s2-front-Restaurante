@@ -1,6 +1,6 @@
 
 /**
-* This class represents an editorial of the BookStore. 
+* This class represents an editorial of the BookStore.
 * It contains all the information relevant to the editorial.
 */
 export class Plato {
@@ -8,12 +8,12 @@ export class Plato {
     * The editorial's id
     */
    id : number;
-    nombre: string;
+    name: string;
 
     /**
     * The editorial's name
     */
     precio: number;
-  
+
 
 }

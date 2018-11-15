@@ -46,6 +46,7 @@ export class PlatoCreateComponent implements OnInit {
     console.log(this.plato);
     this.platoService.createPlato(this.plato)
         .subscribe((plato) => {
+            console.log(this.plato);
             this.plato = plato;
             this.create.emit();
             this.toastrService.success("El plato fue creado", "Creación del plato");
@@ -69,4 +70,3 @@ export class PlatoCreateComponent implements OnInit {
     }
 
 }
-
