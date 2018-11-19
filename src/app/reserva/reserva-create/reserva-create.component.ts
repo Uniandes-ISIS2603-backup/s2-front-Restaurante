@@ -13,6 +13,7 @@ import { MesaService } from '../../mesa/mesa.service';
 import {FormControl} from '@angular/forms';
 import { MesaDetail } from 'src/app/mesa/mesa-detail';
 import { observe } from "rxjs-observe";
+import { HoraMinutos } from './hora';
 
 
 @Component({
@@ -37,11 +38,13 @@ export class ReservaCreateComponent implements OnInit {
   hora: number;
   minuto: number;
   clientes: Cliente[];
+  reservas: Reserva[];
   sucursales: Sucursal[];
   mesas: MesaDetail[];
   mesasDeSucursal: MesaDetail[];
   meridian = true;
-
+  horasDisponibles = new Array<HoraMinutos>();
+  horaSeleccionada : HoraMinutos;
   mesaObserver = x => {
     next: this.getSucursalesFromMesa(x);
   }
@@ -75,10 +78,9 @@ export class ReservaCreateComponent implements OnInit {
     if ((value.hour > 15 && value.hour < 18) || value.hour > 22) {
       return {tooLate: true};
     }
-    
 
-    console.log(value.hour);
-    console.log(value.minute); 
+
+    console.log(this.horaSeleccionada);
     this.hora = value.hour;
     this.minuto = value.minute;
     return null;
@@ -87,6 +89,17 @@ export class ReservaCreateComponent implements OnInit {
   toggleMeridian() {
     this.meridian = !this.meridian;
   }
+
+
+  getReservas(): void {
+    this.reservaService.getReservas()
+    .subscribe(reservas => {
+      this.reservas = reservas;
+    }, err => {
+      this.toastrService.error(err, 'Error');
+    });
+  }
+
   getClientes(): void {
     this.clienteService.getClientes()
     .subscribe(clientes => {
@@ -126,8 +139,8 @@ export class ReservaCreateComponent implements OnInit {
 
   createReserva(): Reserva {
     this.toastrService.info('Se está creando la reserva', 'Crear Reserva', {timeOut: 2000, progressBar: true});
-    let dateB: Date = new Date(this.reserva.hora.year, this.reserva.hora.month - 1, this.reserva.hora.day, this.hora, this.minuto);
-    console.log(dateB);
+    let dateB: Date = new Date(this.reserva.hora.year, this.reserva.hora.month - 1, this.reserva.hora.day, this.horaSeleccionada.hora, this.horaSeleccionada.minutos);
+
     this.reserva.hora = this.dp.transform(dateB, 'yyyy-MM-ddTHH:mm:ss');
     this.reservaService.createReserva(this.reserva)
     .subscribe(reserva => {
@@ -137,9 +150,17 @@ export class ReservaCreateComponent implements OnInit {
     }, err => {
       this.toastrService.error(err, 'Error');
     });
-    
+
     return this.reserva;
   }
+
+  comprobarDisponibilidad(): Reserva {
+
+
+    return this.reserva;
+  }
+
+
 
 
   ngOnInit() {
@@ -147,6 +168,20 @@ export class ReservaCreateComponent implements OnInit {
     this.reserva.cliente = new Cliente();
     this.reserva.sucursal = new Sucursal();
     this.reserva.mesa = new Mesa();
+    this.horaSeleccionada = new HoraMinutos();
+
+    for (let i = 12; i < 15; i++) {
+
+        this.horasDisponibles.push(new HoraMinutos().setHoraMinuto(i, "00", 0));
+
+    }
+
+    for (let i = 18; i < 23; i++) {
+        this.horasDisponibles.push(new HoraMinutos().setHoraMinuto(i, "00", 0));
+      
+    }
+
+
     this.getClientes();
     this.getSucursales();
     this.getMesas();
