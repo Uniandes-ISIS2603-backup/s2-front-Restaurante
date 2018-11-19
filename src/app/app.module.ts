@@ -19,15 +19,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { MapComponent } from './map/map.component';
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MapComponent,
-  ],
+    AppComponent  ],
   imports: [
     BrowserModule,
     HttpClientModule,
