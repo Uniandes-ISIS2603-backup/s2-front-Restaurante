@@ -10,20 +10,20 @@
         </button>
       </div>
       <div class="modal-body">
-          <form name="cliente" (ngSubmit)="f.form.valid && editCliente()" #f="ngForm" novalidate style="margin: 0 4% 0 4%;">
+          <form name= "CDNombre" (ngSubmit)="f.form.valid && updateCliente()" #f="ngForm" novalidate style="margin: 0 4% 0 4%;">
               <div class="form-group">
-                  <label for="clienteNombre"><b>Nombre</b></label>
-                  <input type="text" name="clienteNombre" class="form-control" id="clienteNombre" [(ngModel)]="cliente.nombre"
-                      #clienteNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteNombre.invalid }" required>
+                  <label for="CDNombre"><b>Nombre</b></label>
+                  <input type="text" name="CDNombre" class="form-control" id="CDNombre" [(ngModel)]="clienteDetail.nombre"
+                      #clienteNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && CDNombre.invalid }" required>
                   <div class="invalid-feedback">
                       <div>Falta el nombre del cliente</div>
                   </div>
               </div>
               <div class="form-group">
-                  <label for="clienteMetodoPago"><b>Método de pago</b></label>
-                  <div [ngClass]="{ 'is-invalid': f.submitted && clienteMetodoPago.invalid }">
-                      <input type="text" name="clienteMetodoPago" class="form-control" id="clienteMetodoPago" [(ngModel)]="cliente.metodoPago"
-                          #clienteMetodoPago="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteMetodoPago.invalid }"
+                  <label for="CDMetodoPago"><b>Método de pago</b></label>
+                  <div [ngClass]="{ 'is-invalid': f.submitted && CDMetodoPago.invalid }">
+                      <input type="text" name="CDMetodoPago" class="form-control" id="CDMetodoPago" [(ngModel)]="clienteDetail.metodoPago"
+                          #clienteMetodoPago="ngModel" [ngClass]="{ 'is-invalid': f.submitted && CDMetodoPago.invalid }"
                           required>
                       <div class="invalid-feedback">
                           <div>Falta el método de pago del cliente</div>
@@ -34,7 +34,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" (click)="cancelEdit()" data-dismiss="modal">Cancelar</button>
-        <button type="submit" class="btn btn-primary" data-dismiss="modal">Guardar cambios</button>
+        <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="updateCliente()">Guardar cambios</button>
       </div>
     </div>
   </div>

@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ClienteService } from '../cliente.service';
 import { ClienteDetail } from '../cliente-detail';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-cliente-edit',
@@ -10,30 +11,53 @@ import { ClienteDetail } from '../cliente-detail';
 })
 export class ClienteEditComponent implements OnInit {
 
-  @Input() cliente: ClienteDetail;
+  @Input() clienteDetail: ClienteDetail;
 
   constructor(private clienteService: ClienteService,
-    private route: ActivatedRoute) { 
+    private route: ActivatedRoute, private toastrService: ToastrService, private router: Router) { 
   }
 
-
-  cliente_id : number;
 
   @Output() cancel = new EventEmitter();
-  @Output() edit = new EventEmitter();
+  @Output() update = new EventEmitter();
 
-  editCliente( ) : ClienteDetail {
-    console.log(this.cliente);
-    this.clienteService.editCliente(this.cliente_id, this.cliente)
-    .subscribe((cliente) => {
-      this.cliente = cliente;
-      this.edit.emit();
-    });
-    return this.cliente;
-  }
+  /**
+   * Actualiza un cliente
+   */
+  updateCliente(): void {
+    this.clienteService.updateCliente(this.clienteDetail)
+        .subscribe(() => {
+          this.router.navigate(['/clientes/' + this.clienteDetail.id]);
+            this.toastrService.success("La información del cliente ha sido actualizada", "Editar Cliente");
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        3
+}
 
   ngOnInit() {
-    console.log(this.cliente);
+    console.log(this.clienteDetail.nombre);
   }
 
   cancelEdit() : void{

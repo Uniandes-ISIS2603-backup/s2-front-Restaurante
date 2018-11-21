@@ -16,13 +16,13 @@ const clientes = '/clientes';
 */
 @Injectable()
 export class ClienteService {
-    
+
     /**
-    * Constructor of the service
+    * Constructor del servicio
     * @param http The HttpClient - This is necessary in order to perform requests
     */
     constructor(private http: HttpClient) { }
-    
+
     /**
     * Returns the Observable object containing the list of authors retrieved from the API
     * @returns The list of authors in real time
@@ -30,7 +30,7 @@ export class ClienteService {
     getClientes(): Observable<Cliente[]> {
         return this.http.get<Cliente[]>(API_URL + clientes);
     }
-    
+
     /**
     * Returns the Observable object with the details of an author retrieved from the API
     * @returns The author details
@@ -38,21 +38,31 @@ export class ClienteService {
     getClienteDetail(clienteId): Observable<ClienteDetail> {
         return this.http.get<ClienteDetail>(API_URL + clientes + '/' + clienteId);
     }
-    
+
     /**
-    * Creates an author
+    * Crea un cliente
     * @param author The new author
     * @returns The confirmation that the author was created
     */
     createCliente(cliente): Observable<Cliente> {
         return this.http.post<Cliente>(API_URL + clientes, cliente);
     }
-    
+
     /**
-     * Edita un cliente
-     * @param cliente - cliente con nueva información
-     */
-    editCliente(clienteId : number, cliente : ClienteDetail): Observable<ClienteDetail> {
-        return this.http.put<ClienteDetail>(API_URL + clientes + '/' + clienteId, cliente);
+    * Edita un cliente
+    * @param cliente que se quiere actualizar
+    * @returns cliente actualizado
+    */
+    updateCliente(cliente): Observable<ClienteDetail> {
+        return this.http.put<ClienteDetail>(API_URL + clientes + '/' + cliente.id, cliente);
+    }
+
+    /**
+    * Elimina un cliente
+    * @param clienteId - El id del cliente
+    * @returns True si el cliente fue eliminado, false de lo contrario
+    */
+    deleteCliente(clienteId): Observable<ClienteDetail> {
+        return this.http.delete<ClienteDetail>(API_URL + clientes + '/' + clienteId);
     }
 }
