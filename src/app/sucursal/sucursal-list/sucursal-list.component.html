@@ -5,42 +5,28 @@
             <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th colspan="5">Sucursales</th>
+                        <th colspan="4">Sucursales</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <th>Id</th>
-                    <th>Direccion</th>
-                    <th>Mesas</th>
-                    <th>Calificaciones</th>
-                    <th>Platos</th>
+                <th scope= "col">Id</th>
+                <th scope="col">Direccion</th>
+                
                     <tr *ngFor="let sucursal of sucursales">
-                        <td>{{sucursal.id}}</td>
-                        <td>{{sucursal.direccion}}</td>
-                        <td><button type="button" class="btn btn-default" (click)="abrirMesas()">Mesas</button></td>     
-                        <script>
-                        function abrirMesas() {
-                            
-                        }
-                         </script>
-                        <td><button type="button" class="btn btn-default" (click)="abrirCalificaciones()">Calificaciones</button></td>
-                        <script>
-                        function abrirCalificaciones() {
-                            
-                        }
-                         </script>
-                         
-                        <td><button type="button" class="btn btn-default" (click)="abrirPlatos()">Platos</button></td>     
-                        <script>
-                        function abrirPlatos() {
-                            
-                        }
-                         </script>
+                        <td style="cursor: pointer;" (click)="onSelected(sucursal.id)">{{sucursal.id}}</td>
+                        <td style="cursor: pointer;" (click)="onSelected(sucursal.id)">{{sucursal.direccion}}</td>
+                        <button type="button" (click)="showEdit(); onSelected(cliente.id)" class="btn btn-link btn-sm"
+                                data-toggle="modal" data-target="#exampleModalCenter">
+                                <i class="fas fa-edit"></i>
+                            </button> 
                     </tr>
                 </tbody>
             </table>
         </div>
-        
+        <div *ngIf="showInfo" class="alert alert-info" role="alert" style="margin: 20% 10% 10% 10%;">
+                <h3>Visualizar información</h3>
+                <p>Oprime alguna de las sucursales para ver sus detalles.</p>
+            </div>
 
         <div class="col-md-3" id="detail">
             <div *ngIf="selectedSucursal">
