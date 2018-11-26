@@ -11,9 +11,13 @@ import { PlatoListComponent } from '../plato/plato-list/plato-list.component';
 import { CalificacionListComponent } from '../calificacion/calificacion-list/calificacion-list.component';
 import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
 import { ReservaDetailComponent } from '../reserva/reserva-detail/reserva-detail.component';
+import { InicioComponent } from '../inicio/inicio.component';
 
 const routes: Routes = [
-
+  {
+    path: 'inicio',
+    component: InicioComponent
+  },
   {
     path: 'clientes',
     children: [
