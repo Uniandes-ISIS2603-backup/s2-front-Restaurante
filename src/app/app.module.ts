@@ -21,10 +21,12 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
+import { InicioComponent } from './inicio/inicio.component';
 
 @NgModule({
   declarations: [
-    AppComponent  ],
+    AppComponent,
+    InicioComponent  ],
   imports: [
     BrowserModule,
     HttpClientModule,
