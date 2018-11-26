@@ -1,31 +1,27 @@
 <div class="container-fluid" style="margin: 2% 0 0% 2%">
     <h3>Sucursales</h3>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-2">
             <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th colspan="4">Sucursales</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Direccion</th>
                     </tr>
                 </thead>
                 <tbody>
-                <th scope= "col">Id</th>
-                <th scope="col">Direccion</th>
                 
                     <tr *ngFor="let sucursal of sucursales">
                         <td style="cursor: pointer;" (click)="onSelected(sucursal.id)">{{sucursal.id}}</td>
                         <td style="cursor: pointer;" (click)="onSelected(sucursal.id)">{{sucursal.direccion}}</td>
-                        <button type="button" (click)="showEdit(); onSelected(cliente.id)" class="btn btn-link btn-sm"
-                                data-toggle="modal" data-target="#exampleModalCenter">
-                                <i class="fas fa-edit"></i>
-                            </button> 
+                        
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div *ngIf="showInfo" class="alert alert-info" role="alert" style="margin: 20% 10% 10% 10%;">
+        <div *ngIf="showInfo" class="alert alert-info" role="alert" style="margin: 10% 5% 5% 5%;">
                 <h3>Visualizar información</h3>
-                <p>Oprime alguna de las sucursales para ver sus detalles.</p>
+                <p>Oprime las sucursales para ver sus detalles.</p>
             </div>
 
         <div class="col-md-3" id="detail">
@@ -33,7 +29,7 @@
                 <app-sucursal-detail [sucursalDetail]="selectedSucursal"></app-sucursal-detail>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                 (click)="showHideCreate()">Crear
                 una sucursal</button>

@@ -9,6 +9,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { SucursalCreateComponent } from './sucursal-create/sucursal-create.component';
 import { FormsModule } from '@angular/forms';
+
 @NgModule({
   imports: [
     CommonModule,

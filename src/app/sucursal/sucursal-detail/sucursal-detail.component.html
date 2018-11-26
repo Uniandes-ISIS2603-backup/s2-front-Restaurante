@@ -31,7 +31,7 @@
       <th>Precio</th>
       <tr *ngFor="let plato of sucursalDetail.platos">
         <td>{{plato.id}}</td>
-        <td>{{plato.nombre  }}</td>
+        <td>{{plato.nombre}}</td>
         <td>{{plato.precio}}</td>
       </tr>
     </tbody>
@@ -45,7 +45,7 @@
     <tbody>
       <th>Id</th>
       <th>Numero</th>
-      <tr *ngFor="let mesa of sucursalDetail.mesas">
+      <tr *ngFor="let mesa of mesasDeSucursal">
         <td>{{mesa.id}}</td>
         <td>{{mesa.numero}</td>
       </tr>

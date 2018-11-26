@@ -30,6 +30,8 @@ export class SucursalListComponent implements OnInit {
     * Shows or hides the author-create-component
     */
    showCreate: boolean;
+   
+   showInfo : boolean;
     
     /**
     * Muestra el autor
@@ -53,6 +55,7 @@ export class SucursalListComponent implements OnInit {
         this.sucursalService.getSucursalDetail(this.sucursal_id)
             .subscribe(selectedSucursal => {
                 this.selectedSucursal = selectedSucursal
+                this.showInfo = false;
             });
     }
     
@@ -60,16 +63,13 @@ export class SucursalListComponent implements OnInit {
         this.selectedSucursal = undefined;
         this.sucursal_id = undefined;
         this.getSucursales();
+        this.showInfo = true
     }
 
      /**
     * Shows or hides the create component
     */
-   showHideCreate(): void {
-    if (this.selectedSucursal) {
-        this.selectedSucursal = undefined;
-        this.sucursal_id = undefined;
+    showHideCreate(): void {
+        this.showCreate = !this.showCreate;
     }
-    this.showCreate = !this.showCreate;
-}
 }

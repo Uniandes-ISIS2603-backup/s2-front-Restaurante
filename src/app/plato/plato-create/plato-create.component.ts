@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-
+import {SucursalService} from '../../sucursal/sucursal.service';
 import { ToastrService } from 'ngx-toastr';
-
+import { Sucursal } from '../../sucursal/sucursal';
 import { PlatoService } from '../plato.service';
 import { Plato } from '../plato';
 
@@ -19,14 +19,15 @@ export class PlatoCreateComponent implements OnInit {
     */
     constructor(
         private platoService: PlatoService,
-        private toastrService: ToastrService
+        private toastrService: ToastrService,
+        private sucursalService: SucursalService
     ) { }
 
     /**
     * The new author
     */
     plato: Plato;
-
+    sucursales: Sucursal[];
     /**
     * The output which tells the parent component
     * that the user no longer wants to create an author
@@ -39,6 +40,16 @@ export class PlatoCreateComponent implements OnInit {
     */
     @Output() create = new EventEmitter();
 
+
+    getSucursales(): void {
+    this.sucursalService.getSucursales()
+    .subscribe(sucursales => {
+      this.sucursales = sucursales;
+    }, err => {
+      this.toastrService.error(err, 'Error');
+    });
+  }
+  
     /**
     * Creates an author
     */
@@ -67,6 +78,9 @@ export class PlatoCreateComponent implements OnInit {
     */
     ngOnInit() {
         this.plato = new Plato();
+        this.plato.sucursal = new Sucursal();
+        
+        this.getSucursales();
     }
 
 }

@@ -1,19 +1,17 @@
-
 /**
 * This class represents an editorial of the BookStore.
 * It contains all the information relevant to the editorial.
 */
+import { Sucursal } from "../sucursal/sucursal";
 export class Plato {
-    /**
-    * The editorial's id
-    */
-   id : number;
+    
+    id : number;
     name: string;
 
-    /**
-    * The editorial's name
-    */
+    
     precio: number;
+    
+    sucursal: Sucursal;
 
 
 }
