@@ -1,16 +1,24 @@
-<div class="containter">
-  <ngb-carousel *ngIf="images">
-    <ng-template ngbSlide>
-      <img src="../../assets/Inicio.jpeg" alt="Inicio" class="img-fluid">
-    </ng-template>
-    <ng-template ngbSlide>
-      <img src="../../assets/Reservas.jpeg" alt="Inicio" class="img-fluid">
-    </ng-template>
-    <ng-template ngbSlide>
-      <img src="../../assets/Domicilios.jpeg" alt="Inicio" class="img-fluid">
-    </ng-template>
-    <ng-template ngbSlide>
-      <img src="../../assets/Inicio.jpeg" alt="Inicio" class="img-fluid">
-    </ng-template>
-  </ngb-carousel>
+<div class="container-fluid" id="cont-inicio">
+  <div class="row" style="margin:0;">
+    <ngb-carousel *ngIf="images">
+      <ng-template ngbSlide>
+        <img src="../../assets/Inicio.jpeg" alt="Inicio" class="img-fluid">
+      </ng-template>
+      <ng-template ngbSlide>
+        <img src="../../assets/Reservas.jpeg" alt="Reservas" class="img-fluid">
+      </ng-template>
+      <ng-template ngbSlide>
+        <img src="../../assets/Domicilios.jpeg" alt="Domicilios" class="img-fluid">
+      </ng-template>
+      <ng-template ngbSlide>
+        <img src="../../assets/Inolvidables.jpeg" alt="Inolvidables" class="img-fluid">
+      </ng-template>
+    </ngb-carousel>
+  </div>
+  <div class="w-100"></div>
+  <img src="../../assets/QuienesSomos.jpeg" alt="Inolvidables" class="img-fluid">
+  <div class="w-100"></div>
+  <img src="../../assets/Amamos.jpeg" alt="Inolvidables" class="img-fluid">
+  <div class="w-100"></div>
+  <img src="../../assets/Sazon.jpeg" alt="Inolvidables" class="img-fluid">
 </div>
