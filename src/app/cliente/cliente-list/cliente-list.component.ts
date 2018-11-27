@@ -94,5 +94,4 @@ export class ClienteListComponent implements OnInit {
         this.edit = !this.edit;
     }
 
-
 }

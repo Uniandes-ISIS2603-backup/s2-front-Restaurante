@@ -30,13 +30,10 @@ export class ClienteEditComponent implements OnInit {
           this.router.navigate(['/clientes/' + this.clienteDetail.id]);
             this.toastrService.success("La información del cliente ha sido actualizada", "Editar Cliente");
         });
-
-
-
 }
 
   ngOnInit() {
-    console.log(this.clienteDetail.nombre);
+    
   }
 
   cancelEdit() : void{

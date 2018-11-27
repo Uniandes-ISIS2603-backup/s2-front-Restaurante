@@ -31,16 +31,13 @@ aria-hidden="true">
                 </div>
             </div>
             <div class="form-group">
-              <label for="CDSucursal"><b>Sucursal</b></label>
-              <div [ngClass]="{ 'is-invalid': f.submitted && CDSucursal.invalid }">
-                  <input type="text" name="CDSucursal" class="form-control" id="CDSucursal" [(ngModel)]="plato.sucursal"
-                      #platoSucursal="ngModel" [ngClass]="{ 'is-invalid': f.submitted && CDSucursal.invalid }"
-                      required>
-                  <div class="invalid-feedback">
-                      <div>Falta la Sucursal</div>
-                  </div>
-              </div>
-          </div>
+                <label for="platoSucursal"><b>Sucursal</b></label>
+                <select class="custom-select" (input)="log($event)" name="platoSucursal" id="platoSucursal" [(ngModel)]="plato.sucursal.id"
+                #platoSucursal="ngModel" [ngClass]="{ 'is-invalid': f.submitted && platoSucursal.invalid }" required>
+                <option [value]="sucursal.id" *ngFor="let sucursal of sucursales">{{sucursal.direccion}}</option>
+              </select>
+              
+            </div>
           <div class="form-group">
             <label for="CDImagen"><b>Imagen</b></label>
             <div [ngClass]="{ 'is-invalid': f.submitted && CDImagen.invalid }">

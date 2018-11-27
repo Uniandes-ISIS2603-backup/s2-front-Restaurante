@@ -3,24 +3,26 @@
   <table class="table table-bordered">
     <thead class="thead-dark">
       <tr>
-        <th colspan="4" style="text-align: center">Datos</th>
+        <th colspan="5" style="text-align: center">Datos</th>
       </tr>
     </thead>
     <tbody>
       <th>Id</th>
       <th>Nombre</th>
+      <th>Identificacion</th>
       <th>Método Pago</th>
       <th>Tarjeta</th>
       <tr>
         <td>{{clienteDetail.id}}</td>
         <td>{{clienteDetail.nombre}}</td>
+        <td>{{clienteDetail.identificacion}}</td>
         <td>{{clienteDetail.metodoPago}}</td>
-        <td>df</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
 
-  <table class="table table-striped ">
+  <table class="table table-striped " *ngIf="showReservas">
     <thead class="thead-dark">
       <tr>
         <th colspan="4" style="text-align: center; margin-top: 2%">Reservas</th>
@@ -39,7 +41,7 @@
       </tr>
     </tbody>
   </table>
-  <table class="table table-dark" style="margin-top: 2%">
+  <table class="table table-dark" style="margin-top: 2%" *ngIf="showDomicilios">
     <thead>
       <tr>
         <th colspan="2" style="text-align: center">Domicilios</th>
