@@ -1,0 +1,63 @@
+<<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLongTitle">Editar plato</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form name= "CDNombre" (ngSubmit)="f.form.valid && updatePlato()" #f="ngForm" novalidate style="margin: 0 4% 0 4%;">
+            <div class="form-group">
+                <label for="CDNombre"><b>Nombre</b></label>
+                <input type="text" name="CDName" class="form-control" id="CDName" [(ngModel)]="plato.name"
+                    #platoName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && CDName.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el nombre del plato</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="CDPrecio"><b>Precio</b></label>
+                <div [ngClass]="{ 'is-invalid': f.submitted && CDPrecio.invalid }">
+                    <input type="number" name="CDPrecio" class="form-control" id="CDPrecio" [(ngModel)]="plato.precio"
+                        #platoPrecio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && CDPrecio.invalid }"
+                        required>
+                    <div class="invalid-feedback">
+                        <div>Falta el precio</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+              <label for="CDSucursal"><b>Sucursal</b></label>
+              <div [ngClass]="{ 'is-invalid': f.submitted && CDSucursal.invalid }">
+                  <input type="text" name="CDSucursal" class="form-control" id="CDSucursal" [(ngModel)]="plato.sucursal"
+                      #platoSucursal="ngModel" [ngClass]="{ 'is-invalid': f.submitted && CDSucursal.invalid }"
+                      required>
+                  <div class="invalid-feedback">
+                      <div>Falta la Sucursal</div>
+                  </div>
+              </div>
+          </div>
+          <div class="form-group">
+            <label for="CDImagen"><b>Imagen</b></label>
+            <div [ngClass]="{ 'is-invalid': f.submitted && CDImagen.invalid }">
+                <input type="text" name="CDImagen" class="form-control" id="CDImagen" [(ngModel)]="plato.imagen"
+                    #platoImagen="ngModel" [ngClass]="{ 'is-invalid': f.submitted && CDImagen.invalid }"
+                    required>
+                <div class="invalid-feedback">
+                    <div>Falta la Imagen</div>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="cancelEdit()" data-dismiss="modal">Cancelar</button>
+      <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="updatePlato()">Guardar cambios</button>
+    </div>
+  </div>
+</div>
+</div>

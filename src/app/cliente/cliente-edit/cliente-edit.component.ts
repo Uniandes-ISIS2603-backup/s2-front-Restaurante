@@ -33,27 +33,6 @@ export class ClienteEditComponent implements OnInit {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        3
 }
 
   ngOnInit() {

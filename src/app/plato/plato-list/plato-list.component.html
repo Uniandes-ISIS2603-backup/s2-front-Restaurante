@@ -11,14 +11,15 @@
         <img class="card-img-top" src="{{plato.imagen}}" alt="Card image cap">
         <div class="card-body">
         <p class="card-text">{{plato.id}}.   {{plato.name}} :  ${{plato.precio}}</p>
-        
+        <button type="button" class="btn btn-primary" (click)="showEdit(); onSelected(plato.id)"data-toggle="modal" data-target="#exampleModalCenter">
+            Editar
+          </button>
         </div>
      </div>
 
-    
- 
-        
-    
-
-
 </div>
+
+<div *ngIf="edit">
+    <app-plato-edit [plato]="selectedPlato"></app-plato-edit>
+</div>
+

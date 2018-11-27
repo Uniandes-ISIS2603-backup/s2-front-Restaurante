@@ -31,5 +31,23 @@ export class PlatoService {
     */
    createPlato(plato): Observable<Plato> {
     return this.http.post<Plato>(API_URL + platos, plato);
+   
+   
+
+}
+
+
+    
+getPlato(platoId): Observable<Plato> {
+    return this.http.get<Plato>(API_URL + platos + '/' + platoId);
+}
+
+ /**
+    * Edita un cliente
+    * @param cliente que se quiere actualizar
+    * @returns cliente actualizado
+    */
+   updatePlato(plato): Observable<Plato> {
+    return this.http.put<Plato>(API_URL + platos + '/' + plato.id, plato);
 }
 }
