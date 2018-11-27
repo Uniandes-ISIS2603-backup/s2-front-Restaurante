@@ -1,14 +1,24 @@
 <div class="container-fluid" style="margin: 2% 0 0% 2%">
 <h3>Platos</h3>
+<button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+            (click)="showHideCreate()">Crear
+            un plato</button>
+        <div *ngIf="showCreate">
+            <app-plato-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-plato-create>
+        </div>
 
     <div class="card" style="width: 18rem;" *ngFor="let plato of platos" (click)="onSelected(plato.id)">
         <img class="card-img-top" src="{{plato.imagen}}" alt="Card image cap">
         <div class="card-body">
         <p class="card-text">{{plato.id}}.   {{plato.name}} :  ${{plato.precio}}</p>
+        
         </div>
      </div>
 
     
  
+        
+    
+
 
 </div>
