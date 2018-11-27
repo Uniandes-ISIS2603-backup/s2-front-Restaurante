@@ -31,6 +31,9 @@ export class ClienteDetailComponent implements OnInit {
   */
   cliente_id: number;
 
+  showDomicilios : boolean;
+  showReservas : boolean;
+
  
   /**
   * El método que obtiene el cliente cuyos detalles quieren visualizarse.
@@ -52,5 +55,7 @@ export class ClienteDetailComponent implements OnInit {
       this.clienteDetail = new ClienteDetail();
       this.getClienteDetail();
     }
+    this.showReservas = true;
+    this.showDomicilios = true;
   }
 }

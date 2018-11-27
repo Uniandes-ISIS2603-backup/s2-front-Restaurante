@@ -16,5 +16,11 @@ export class Cliente {
      * El método de pago del cliente
      */
     metodoPago : string;
+
+    /**
+     * Identificación del cliente
+     * Entiéndase como el documento de identidad
+     */
+    identificacion : number;
 }
 
