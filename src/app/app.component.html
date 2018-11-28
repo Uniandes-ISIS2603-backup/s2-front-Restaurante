@@ -32,11 +32,17 @@
           </div>
         </li>
 
-          <li  *ngxPermissionsOnly="['GUEST']"><a id="signup-navbar-item" routerLink="/auth/sign-up"> Registrarse</a></li>
-          <li><a id="nav-sitem" routerLink="/auth/login" *ngxPermissionsOnly="['GUEST']" ><span class="fa fa-sign-in"></span> Ingresar </a></li>
+        <li class="nav-item" *ngxPermissionsOnly="['GUEST']">
+          <a id="signup-navbar-item" routerLink="/auth/sign-up" > <span class="fa fa-user"></span> Registrarse</a>
+        </li>
 
+        <li class="nav-item" *ngxPermissionsOnly="['GUEST']">
+          <a id="nav-sitem" routerLink="/auth/login" > <span class="fa fa-share-square-o"></span> Ingresar</a>
+        </li>
 
-         <li class="nav-item" *ngxPermissionsOnly="['CLIENT', 'ADMIN']"><a id="logout-navbar-item" (click)="logout()" href="#"><span class="fa fa-sign-out"></span>Logout</a></li>
+        <li class="nav-item" *ngxPermissionsOnly="['CLIENT', 'ADMIN']">
+          <a id="logout-navbar-item" (click)="logout()" href="#"><span class="fa fa-sign-out"></span>Logout</a>
+        </li>
 
       </ul>
     </div>
