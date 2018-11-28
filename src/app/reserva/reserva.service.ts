@@ -50,7 +50,6 @@ export class ReservaService {
     * @returns True si el cliente fue eliminado, false de lo contrario
     */
     deleteReserva(reserva_id): Observable<boolean> {
-
         return this.http.delete<boolean>(API_URL + reservas + '/' + reserva_id);
     }
 
