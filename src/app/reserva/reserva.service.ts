@@ -34,5 +34,4 @@ export class ReservaService {
         console.log(reserva);
         return this.http.post<ReservaDetail>(API_URL + reservas, reserva);
     }
-
 }

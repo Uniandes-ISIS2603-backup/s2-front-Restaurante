@@ -14,6 +14,7 @@ import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail
 import { ReservaDetailComponent } from '../reserva/reserva-detail/reserva-detail.component';
 import { InicioComponent } from '../inicio/inicio.component';
 import {NgxPermissionsGuard} from 'ngx-permissions';
+import { InicioAdminComponent } from '../inicio-admin/inicio-admin.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'inicio',
     component: InicioComponent
+  },
+  {
+      path:'inicio-admin',
+      component: InicioAdminComponent
   },
   {
     path: 'clientes',
