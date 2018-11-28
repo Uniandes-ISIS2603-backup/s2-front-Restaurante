@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 
 import { ClienteService } from '../cliente.service';
 import { Cliente } from '../cliente';
@@ -41,9 +42,9 @@ export class ClienteListComponent implements OnInit {
     */
     showCreate: boolean;
 
-    showInfo : boolean;
+    showInfo: boolean;
 
-    edit : boolean;
+    edit: boolean;
 
     /**
     * Muestra el cliente
@@ -53,7 +54,6 @@ export class ClienteListComponent implements OnInit {
         this.selectedCliente = new ClienteDetail();
         this.getClienteDetail();
     }
-
 
     /**
     * Actualiza la lista de clientes
@@ -72,6 +72,14 @@ export class ClienteListComponent implements OnInit {
                 this.showInfo = false;
             });
     }
+
+    deleteCliente(clienteId): void {
+        this.clienteService.deleteCliente(clienteId)
+            .subscribe(() => {
+                this.ngOnInit();
+            });
+    }
+
     /**
     * Inicializa el componente retornando la lista de clientes
     * El método se llama cuando se crea el componente.
@@ -90,7 +98,7 @@ export class ClienteListComponent implements OnInit {
         this.showCreate = !this.showCreate;
     }
 
-    showEdit():void{
+    showEdit(): void {
         this.edit = !this.edit;
     }
 

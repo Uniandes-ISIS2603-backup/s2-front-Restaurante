@@ -95,3 +95,9 @@ ngb-carousel {
     z-index: -1000;
     padding:0;
 }
+
+#fondo-dash{
+    position:fixed;
+    top:0;
+}
+

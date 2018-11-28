@@ -62,7 +62,8 @@ export class ClienteService {
     * @param clienteId - El id del cliente
     * @returns True si el cliente fue eliminado, false de lo contrario
     */
-    deleteCliente(clienteId): Observable<ClienteDetail> {
-        return this.http.delete<ClienteDetail>(API_URL + clientes + '/' + clienteId);
+    deleteCliente(cliente_id): Observable<boolean> {
+        console.log(cliente_id);
+        return this.http.delete<boolean>(API_URL + clientes + '/' + cliente_id);
     }
 }
