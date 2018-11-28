@@ -3,7 +3,7 @@
 #inicio{
     margin-left: 1rem;
 }
-.navbar-nav > li{
+.navbar-nav > li,#signup-navbar-item, #logout-navbar-item, #nav-sitem{
     font-size: large;
     font-family: 'Merienda One', cursive;
     color: #512C1F;
@@ -101,3 +101,11 @@ ngb-carousel {
     top:0;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-column: 10px 10px 10px;
+}
+
+.grid-item{
+  padding: 20px;
+}
