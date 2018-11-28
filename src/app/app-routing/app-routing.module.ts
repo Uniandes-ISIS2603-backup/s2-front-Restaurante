@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-
+import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
+import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
 import { DomicilioListComponent } from '../domicilio/domicilio-list/domicilio-list.component';
 import { MesaListComponent } from '../mesa/mesa-list/mesa-list.component';
@@ -12,6 +13,7 @@ import { CalificacionListComponent } from '../calificacion/calificacion-list/cal
 import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
 import { ReservaDetailComponent } from '../reserva/reserva-detail/reserva-detail.component';
 import { InicioComponent } from '../inicio/inicio.component';
+import {NgxPermissionsGuard} from 'ngx-permissions';
 
 const routes: Routes = [
   {
@@ -28,7 +30,7 @@ const routes: Routes = [
           path: 'list',
           component: ClienteListComponent,
           runGuardsAndResolvers: 'always'
-          
+
       },
       {
           path: ':id',
@@ -57,7 +59,7 @@ const routes: Routes = [
                 component: ReservaDetailComponent,
                 runGuardsAndResolvers: 'always'
             }
-          
+
         ]
   },
   {
@@ -67,7 +69,32 @@ const routes: Routes = [
   {
     path: 'calificaciones',
     component: CalificacionListComponent
-  }
+  },
+  {
+        path: 'auth',
+        children: [
+            {
+                path: 'login',
+                component: AuthLoginComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['GUEST']
+                    }
+                }
+            },
+            {
+                path: ':sign-up',
+                component: AuthSignUpComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['GUEST']
+                    }
+                }
+            }
+        ]
+    },
 ];
 
 @NgModule({

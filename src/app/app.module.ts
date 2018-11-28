@@ -22,6 +22,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { InicioComponent } from './inicio/inicio.component';
+import {NgxPermissionsModule} from 'ngx-permissions';
+import { AuthModule } from './auth/auth.module'
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { InicioComponent } from './inicio/inicio.component';
     ModalDialogModule,
     AngularFontAwesomeModule,
     FormsModule,
-    AgmCoreModule.forRoot({apiKey: 'AIzaSyAgjJAPC_F6TF2Cv7Dj0fcDkBPdbFY54Rg'})
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyAgjJAPC_F6TF2Cv7Dj0fcDkBPdbFY54Rg'}),
+    NgxPermissionsModule.forRoot(),
+    AuthModule
   ],
   providers: [
     GoogleMapsAPIWrapper,
