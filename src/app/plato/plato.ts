@@ -12,6 +12,7 @@ export class Plato {
     precio: number;
     
     sucursal: Sucursal;
+    imagen : string ;
 
 
 }

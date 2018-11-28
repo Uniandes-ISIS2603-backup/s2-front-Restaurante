@@ -9,6 +9,7 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { PlatoCreateComponent } from './plato-create/plato-create.component';
+import { PlatoEditComponent } from './plato-edit/plato-edit.component';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { PlatoCreateComponent } from './plato-create/plato-create.component';
     HttpClientModule,
     FormsModule
   ],
-  declarations: [PlatoListComponent, PlatoCreateComponent],
+  declarations: [PlatoListComponent, PlatoCreateComponent, PlatoEditComponent],
   providers: [PlatoService],
 
 })
