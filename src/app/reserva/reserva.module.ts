@@ -9,6 +9,7 @@ import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { ReservaDetailComponent } from './reserva-detail/reserva-detail.component';
 import { ReservaCreateComponent } from './reserva-create/reserva-create.component';
+import { ReservaEditComponent } from './reserva-edit/reserva-edit.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { ReservaCreateComponent } from './reserva-create/reserva-create.componen
     NgbModule,
     ReactiveFormsModule
   ],
-  declarations: [ReservaListComponent, ReservaDetailComponent, ReservaCreateComponent],
+  declarations: [ReservaListComponent, ReservaDetailComponent, ReservaCreateComponent, ReservaEditComponent],
   providers: [ReservaService],
   exports: [ReservaListComponent]
 })

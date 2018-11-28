@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgxRolesService, NgxPermissionsService} from 'ngx-permissions'
-
+import { ClienteService } from '../cliente/cliente.service';
 /**
  * The service provider for everything related to authentication
  */
@@ -64,6 +64,9 @@ export class AuthService {
             this.setClientRole()
         }
         this.router.navigateByUrl('/inicio');
+
+        this.printRole();
+
     }
 
     /**

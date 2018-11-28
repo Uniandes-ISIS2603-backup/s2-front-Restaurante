@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthSignUpComponent } from './auth-sign-up/auth-sign-up.component';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
-import { ClienteService } from '../cliente/cliente.service';
+
 
 @NgModule({
   imports: [

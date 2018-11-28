@@ -34,4 +34,23 @@ export class ReservaService {
         console.log(reserva);
         return this.http.post<ReservaDetail>(API_URL + reservas, reserva);
     }
+
+    /**
+    * Edita una reserva
+    * @param reserva que se quiere actualizar
+    * @returns reserva actualizado
+    */
+    updateReserva(reserva): Observable<ReservaDetail> {
+        return this.http.put<ReservaDetail>(API_URL + reservas + '/' + reserva.id, reserva);
+    }
+
+    /**
+    * Elimina una reserva
+    * @param reservaId - El id de la reserva
+    * @returns True si el cliente fue eliminado, false de lo contrario
+    */
+    deleteReserva(reserva_id): Observable<boolean> {
+        return this.http.delete<boolean>(API_URL + reservas + '/' + reserva_id);
+    }
+
 }
