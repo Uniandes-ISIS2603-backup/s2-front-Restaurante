@@ -12,5 +12,10 @@ export class Sucursal {
     */
     direccion: string;
     
+    
+    /**
+     * El promedio de calificaciones de la sucursal
+     */
+    promedio: number;
 }
 
