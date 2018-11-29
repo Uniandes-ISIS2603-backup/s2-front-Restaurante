@@ -35,6 +35,7 @@ export class ReservaCreateComponent implements OnInit {
   ) { }
 
   reserva: Reserva;
+  success : boolean;
   hora: number;
   minuto: number;
   clientes: Cliente[];
@@ -144,8 +145,7 @@ export class ReservaCreateComponent implements OnInit {
     this.reserva.hora = this.dp.transform(dateB, 'yyyy-MM-ddTHH:mm:ss');
     this.reservaService.createReserva(this.reserva)
     .subscribe(reserva => {
-      this.reserva.id = reserva.id;
-      this.router.navigate(['/reservas/' + reserva.id]);
+      this.reserva.id = reserva.id;    
       this.toastrService.success('La reserva se ha creado exitosamente', 'Crear Reserva')
     }, err => {
       this.toastrService.error(err, 'Error');
@@ -178,13 +178,16 @@ export class ReservaCreateComponent implements OnInit {
 
     for (let i = 18; i < 23; i++) {
         this.horasDisponibles.push(new HoraMinutos().setHoraMinuto(i, "00", 0));
-      
+
     }
 
 
     this.getClientes();
     this.getSucursales();
     this.getMesas();
+
+
+    this.success = false;
   }
 
 }

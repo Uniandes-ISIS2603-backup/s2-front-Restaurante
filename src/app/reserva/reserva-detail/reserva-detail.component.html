@@ -1,10 +1,28 @@
-<div class="col-md-12">
-    <div class="container-fluid">
-        <p class="h3 p-3">ID: {{reservaDetail.id}}</p>
-        <p class="h3 p-3">Cantidad Personas: {{reservaDetail.cantidadPersonas}}</p>
-        <p class="h3 p-3">Hora: {{reservaDetail.hora | date:"M/d/yy - h:mm a"}}</p>
-        <p class="h3 p-3">Sucursal: {{reservaDetail.sucursal.direccion}}</p>
-        <p class="h3 p-3">Cliente: {{reservaDetail.cliente.nombre}}</p>
-        <p class="h3 p-3">Numero de Mesa: {{reservaDetail.mesa.numero}}</p>
-    </div>
+
+<div class="container" style="margin-left: 2%">
+  <h3>Acerca de esta Reserva</h3>
+
+  <h2>Datos</h2>
+  <table class="table">
+    <thead class="thead-light">
+      <th scope="col">Id</th>
+      <th scope="col">Cantidad Personas</th>
+      <th scope="col">Hora</th>
+      <th scope="col">Sucursal</th>
+      <th scope="col">Cliente</th>
+      <th scope="col">Numero de Mesa</th>
+    </thead>
+    <tbody id="listing-detail">
+      <tr>
+        <td>{{reservaDetail.id}}</td>
+        <td>{{reservaDetail.cantidadPersonas}}</td>
+        <td>{{reservaDetail.hora | date:"M/d/yy - h:mm a"}}</td>
+        <td>{{reservaDetail.sucursal.direccion}}</td>
+        <td>{{reservaDetail.cliente.nombre}}</td>
+        <td>{{reservaDetail.mesa.numero}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
 </div>
