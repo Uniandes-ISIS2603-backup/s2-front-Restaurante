@@ -2,27 +2,25 @@
     <h3>Sucursales</h3>
     <div class="row">
         <div class="col-md-2">
-            <table class="table table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Direccion</th>
-                    </tr>
-                </thead>
-                <tbody>
-                
+            <table class="table">
+                <tbody id="listing-body">
                     <tr *ngFor="let sucursal of sucursales">
-                        <td style="cursor: pointer;" (click)="onSelected(sucursal.id)">{{sucursal.id}}</td>
-                        <td style="cursor: pointer;" (click)="onSelected(sucursal.id)">{{sucursal.direccion}}</td>
-                        
+                        <td style="cursor: pointer;" (click)="onSelected(sucursal.id)">{{sucursal.direccion}}
+
+                            <button type="button" (click)="showEdit(); onSelected(sucursal.id)" class="btn btn-link btn-sm"
+                                data-toggle="modal" data-target="#exampleModalCenter">
+                                <i class="fas fa-edit"></i>
+                            </button>
+
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div *ngIf="showInfo" class="alert alert-info" role="alert" style="margin: 10% 5% 5% 5%;">
-                <h3>Visualizar información</h3>
-                <p>Oprime las sucursales para ver sus detalles.</p>
-            </div>
+            <h3>Visualizar información</h3>
+            <p>Oprime las sucursales para ver sus detalles.</p>
+        </div>
 
         <div class="col-md-3" id="detail">
             <div *ngIf="selectedSucursal">
@@ -39,4 +37,6 @@
         </div>
     </div>
 </div>
-<iframe src="https://www.google.com/maps/d/embed?mid=1j_QpU6XM0JeZrCu8ZRSOgSqKyRvOqv-i" width="640" height="480"></iframe>
+<div *ngIf="edit">
+    <app-sucursal-edit [sucursalDetail]="selectedSucursal"></app-sucursal-edit>
+</div>
