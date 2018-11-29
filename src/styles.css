@@ -4,7 +4,7 @@
     margin-left: 1rem;
 }
 .navbar-nav > li,#signup-navbar-item, #logout-navbar-item, #nav-sitem{
-    font-size: large;
+    font-size: medium;
     font-family: 'Merienda One', cursive;
     color: #512C1F;
 }
@@ -30,6 +30,7 @@
     height: 34px;
     border-radius: 8px;
     margin-right: 1rem;
+    font-size: medium;
 }
 
 .login-button{

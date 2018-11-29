@@ -1,105 +1,105 @@
 <div class=container-fluid *ngxPermissionsOnly="['GUEST', 'CLIENT']">
-  <img src="../../../assets/Background.jpeg" id="fondo-dash">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" id="brand" routerLink="/inicio">
-      <img src="../../assets/Brand.png"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item" id="inicio">
-          <a class="nav-link" routerLink="/inicio">Inicio </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/sucursales">Sucursales</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/clientes/list">Clientes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/platos">Platos</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Servicios
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" routerLink="/reservas/list">Reservas</a>
-            <a class="dropdown-item" routerLink="/domicilios">Domicilios</a>
-          </div>
-        </li>
-
-        <li class="nav-item" *ngxPermissionsOnly="['GUEST']">
-          <a id="signup-navbar-item" routerLink="/auth/sign-up"> <span class="fa fa-user"></span> Registrarse</a>
-        </li>
-
-        <li class="nav-item" *ngxPermissionsOnly="['GUEST']">
-          <a id="nav-sitem" routerLink="/auth/login"> <i class="fas fa-sign-in-alt"></i> Ingresar</a>
-        </li>
-
-        <li class="nav-item" *ngxPermissionsOnly="['CLIENT', 'ADMIN']">
-          <a id="logout-navbar-item" (click)="logout()" href="#"><span class="fa fa-sign-out"></span>Logout</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <div class="list">
-    <router-outlet></router-outlet>
-  </div>
-</div>
-
-
-<!-- ADMIN DASHBOARD -->
-<div *ngxPermissionsOnly="['ADMIN']">
-  <img src="../../../assets/Background.jpeg" id="fondo-dash">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-2" style="padding-left: 0">
-        <div class="wrapper">
-          <nav id="sidebar">
-            <div class="sidebar-header">
-              <img src="../../assets/Brand-admin.png" class="img-fluid">
+    <img src="../../../assets/Background.jpeg" id="fondo-dash">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" id="brand" routerLink="/inicio">
+        <img src="../../assets/Brand.png"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item" id="inicio">
+            <a class="nav-link" routerLink="/inicio">Inicio </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/sucursales">Sucursales</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/clientes/list">Clientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/platos">Platos</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false" style="padding-right: 2em">
+              Servicios
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" routerLink="/reservas/list">Reservas</a>
+              <a class="dropdown-item" routerLink="/domicilios">Domicilios</a>
             </div>
-            <ul class="list-unstyled components">
-              <li>
-                <a class="nav-link" routerLink="/inicio-admin">Inicio </a>
-              </li>
-              <li>
-                <a class="nav-link" routerLink="/sucursales">Sucursales</a>
-              </li>
-              <li>
-                <a class="nav-link" routerLink="/clientes/list">Clientes</a>
-              </li>
-              <li>
-                <a class="nav-link" routerLink="/platos">Platos</a>
-              </li>
-              <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Servicios</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                  <li>
-                    <a class="dropdown-item" routerLink="/reservas/list">Reservas</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" routerLink="/domicilios">Domicilios</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a class="nav-link" (click)="logout()" href='#'> Salir <i class="fas fa-sign-out-alt" style="margin-left: 2px;"></i>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+          </li>
+  
+          <li class="nav-item" *ngxPermissionsOnly="['GUEST']">
+            <a id="signup-navbar-item" routerLink="/auth/sign-up" style="margin-left:-1em"> <span class="fa fa-user"></span> Registrarse</a>
+          </li>
+  
+          <li class="nav-item" *ngxPermissionsOnly="['GUEST']">
+            <a id="nav-sitem" routerLink="/auth/login"> <i class="fas fa-sign-in-alt"></i> Ingresar</a>
+          </li>
+  
+          <li class="nav-item" *ngxPermissionsOnly="['CLIENT', 'ADMIN']">
+            <a id="logout-navbar-item" (click)="logout()" href="#"><span class="fa fa-sign-out"></span>Logout</a>
+          </li>
+        </ul>
       </div>
-      <div class="col">
-        <div class="list">
-          <router-outlet></router-outlet>
+    </nav>
+    <div class="list">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  
+  
+  <!-- ADMIN DASHBOARD -->
+  <div *ngxPermissionsOnly="['ADMIN']">
+    <img src="../../../assets/Background.jpeg" id="fondo-dash">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-2" style="padding-left: 0">
+          <div class="wrapper">
+            <nav id="sidebar">
+              <div class="sidebar-header">
+                <img src="../../assets/Brand-admin.png" class="img-fluid">
+              </div>
+              <ul class="list-unstyled components">
+                <li>
+                  <a class="nav-link" routerLink="/inicio-admin">Inicio </a>
+                </li>
+                <li>
+                  <a class="nav-link" routerLink="/sucursales">Sucursales</a>
+                </li>
+                <li>
+                  <a class="nav-link" routerLink="/clientes/list">Clientes</a>
+                </li>
+                <li>
+                  <a class="nav-link" routerLink="/platos">Platos</a>
+                </li>
+                <li>
+                  <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Servicios</a>
+                  <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                      <a class="dropdown-item" routerLink="/reservas/list">Reservas</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" routerLink="/domicilios">Domicilios</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a class="nav-link" (click)="logout()" href='#'> Salir <i class="fas fa-sign-out-alt" style="margin-left: 2px;"></i>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="col">
+          <div class="list">
+            <router-outlet></router-outlet>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
