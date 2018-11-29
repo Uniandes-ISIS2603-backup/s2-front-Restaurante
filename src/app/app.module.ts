@@ -49,7 +49,7 @@ import { AuthModule } from './auth/auth.module'
     CalificacionModule,
     NgxPaginationModule,
     NgbModule.forRoot(),
-    ModalDialogModule,
+    ModalDialogModule.forRoot(),
     AngularFontAwesomeModule,
     FormsModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyAgjJAPC_F6TF2Cv7Dj0fcDkBPdbFY54Rg'}),

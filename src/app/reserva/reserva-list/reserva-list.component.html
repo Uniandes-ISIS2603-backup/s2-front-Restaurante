@@ -12,7 +12,7 @@
             <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th colspan="4">Reservas</th>
+                        <th colspan="5">Reservas</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,6 +21,7 @@
                     <th>Fecha</th>
                     <th>CantidadPersonas</th>
                     <th>Modificar</th>
+                    <th>Eliminar</th>
 
 
                     <tr *ngFor = "let reserva of reservas">
@@ -34,6 +35,10 @@
                               Editar
                           </button>
                         </td>
+                        <td >
+                            <button class="btn btn-danger" (click)="deleteReserva(reserva.id)"><span class="fa fa-trash"></span></button>
+                        </td>
+
 
                     </tr>
 
