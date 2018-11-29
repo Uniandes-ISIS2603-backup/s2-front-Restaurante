@@ -16,7 +16,7 @@
                         <td style="cursor: pointer;" (click)="onSelected(cliente.id)">{{cliente.nombre}}</td>
                         <td style="cursor: pointer;">
                             <button *ngxPermissionsOnly="['ADMIN']" type="button" (click)="showEdit(); onSelected(cliente.id)" class="btn btn-link btn-sm"
-                                data-toggle="modal" data-target="#exampleModalCenter">
+                                data-toggle="modal" data-target="#editC">
                                 <i class="fas fa-edit" style="color:#6AB3FC"></i>
                             </button>
 
