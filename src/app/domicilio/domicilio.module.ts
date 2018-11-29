@@ -5,16 +5,14 @@ import { DomicilioListComponent } from './domicilio-list/domicilio-list.componen
 import { DomicilioService } from './domicilio.service';
 import { FormsModule } from '@angular/forms';
 import { DomicilioCreateComponent } from './domicilio-create/domicilio-create.component';
-import {NgxPermissionsModule} from 'ngx-permissions';
-
+import { DomicilioDetailComponent } from './domicilio-detail/domicilio-detail.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
-    NgxPermissionsModule
+    FormsModule
   ],
-  declarations: [DomicilioListComponent, DomicilioCreateComponent],
+  declarations: [DomicilioListComponent, DomicilioCreateComponent, DomicilioDetailComponent],
   providers: [DomicilioService],
   exports: [DomicilioListComponent]
 })

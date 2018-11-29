@@ -27,6 +27,8 @@ export class DomicilioCreateComponent implements OnInit {
     */
     domicilio: Domicilio;
 
+    success : boolean;
+
     /**
     * The output which tells the parent component
     * that the user no longer wants to create an author
@@ -42,12 +44,13 @@ export class DomicilioCreateComponent implements OnInit {
     /**
     * Creates an author
     */
-   createDomicilio(): Domicilio {
+   createdomicilio(): Domicilio {
     console.log(this.domicilio);
     this.domicilioService.createDomicilio(this.domicilio)
         .subscribe((domicilio) => {
             this.domicilio = domicilio;
             this.create.emit();
+            this.success = true;
         });
         return this.domicilio;
 }
@@ -65,8 +68,7 @@ export class DomicilioCreateComponent implements OnInit {
     */
     ngOnInit() {
         this.domicilio = new Domicilio();
+        this.success = false;
     }
-    
-
 }
 

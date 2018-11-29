@@ -1,0 +1,46 @@
+<div class="container" style="margin-left: 2%">
+  <h2>Acerca de este domicilio</h2>
+
+  <h2>Datos</h2>
+  <table class="table">
+    <thead class="thead-light">
+      <th scope="col">Id</th>
+      <th scope="col">Direccion</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Cliente</th>
+      <th scope="col">Sucursal</th>
+    </thead>
+    <tbody id="listing-detail">
+      <tr>
+        <td>{{domicilioDetail.id}}</td>
+        <td>{{domicilioDetail.direccion}}</td>
+        <td>{{domicilioDetail.costo}}</td>
+        <td>{{domicilioDetail.cliente}}</td>
+        <td>{{domicilioDetail.sucursal}}</td>
+        <td> Hola </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div>
+      <h2 style="margin-bottom: 3%" id="Titulito">Platos</h2>
+      <button type="button" (click)="showHideCreate()" class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Añadir plato</button>
+  </div>
+  <table class="table" *ngIf="showplatos">
+    <thead class="thead-light">
+      <th>Id</th>
+      <th>Plato</th>
+      <th>Costo</th>
+    </thead>
+    <tbody id="listing-detail">
+      <tr *ngFor="let plato of domicilioDetail.platos">
+        <td>{{plato.id}}</td>
+        <td>{{plato.sucursal.direccion  }}</td>
+        <td>{{plato.hora  | date:"M/d/yy - h:mm a"}}</td>
+        <td>{{plato.mesa.numero}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+</div>

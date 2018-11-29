@@ -20,7 +20,7 @@
 
                     <tr *ngFor = "let reserva of reservas">
                         <td style="cursor: pointer;" (click)="onSelected(reserva.id)" >{{reserva.id}} </td>
-                        <td style="cursor: pointer;" (click)="onSelected(reserva.id)">{{reserva.hora | date:"M/d/yy - h:mm a"}}</td>
+                        <td style="cursor: pointer;" (click)="onSelected(reserva.id)">{{reserva.hora}}</td>
                         <td style="cursor: pointer;" (click)="onSelected(reserva.id)">{{reserva.cantidadPersonas}}</td>
                         <td *ngxPermissionsOnly="['ADMIN']" style="cursor: pointer;">
                           <button type="button" class="btn btn-primary" (click)="showEdit(); onSelected(reserva.id, reserva.sucursal.id)"data-toggle="modal" data-target="#exampleModalCenter">

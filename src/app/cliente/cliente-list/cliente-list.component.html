@@ -21,7 +21,7 @@
                             </button>
 
                             <!-- Button trigger modal -->
-                            <button *ngxPermissionsOnly="['ADMIN']" type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#exampleModalCenter" (click)="asignarId(cliente.id)">
+                            <button *ngxPermissionsOnly="['ADMIN']" type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#deleteClient" (click)="asignarId(cliente.id)">
                                 <i class="fas fa-trash-alt" style="color:#EA4848"></i>
                             </button>
                         </td>
@@ -42,12 +42,12 @@
 <div *ngIf="edit">
     <app-cliente-edit [clienteDetail]="selectedCliente" (update)="refresh()"></app-cliente-edit>
 </div>
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+<div class="modal fade" id="deleteClient" tabindex="-1" role="dialog" aria-labelledby="deleteCTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Eliminar cliente</h5>
+                <h5 class="modal-title" id="deleteCTitle">Eliminar cliente</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

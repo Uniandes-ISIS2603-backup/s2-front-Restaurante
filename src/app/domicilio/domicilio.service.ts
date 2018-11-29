@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Domicilio } from './domicilio';
+import { DomicilioDetail } from './domicilio-detail';
 import { Observable } from 'rxjs';
 
 
@@ -26,6 +27,13 @@ export class DomicilioService {
         return this.http.get<Domicilio[]>(API_URL + domicilios);
     }
     
+    /**
+    * Returns the Observable object with the details of an author retrieved from the API
+    * @returns The author details
+    */
+   getDomicilioDetail(domicilioId): Observable<DomicilioDetail> {
+    return this.http.get<DomicilioDetail>(API_URL + domicilios + '/' + domicilioId);
+}
      /**
     * Creates an author
     * @param author The new author
