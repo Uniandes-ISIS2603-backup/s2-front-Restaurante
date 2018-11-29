@@ -45,15 +45,6 @@ export class SucursalService {
     createSucursal(sucursal): Observable<Sucursal> {
         return this.http.post<Sucursal>(API_URL + sucursales, sucursal);
     }
-    
-    /**
-    * Edita una sucursal
-    * @param sucursal que se quiere actualizar
-    * @returns sucursal actualizada
-    */
-    updateSucursal(sucursal): Observable<SucursalDetail> {
-        return this.http.put<SucursalDetail>(API_URL + sucursales + '/' + sucursal.id, sucursal);
-    }
 
     
 }

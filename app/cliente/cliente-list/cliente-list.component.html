@@ -1,7 +1,8 @@
 <div class="container-fluid" style="margin: 2% 0 0% 2%">
     <div>
         <h2 style="margin-bottom: 3%" id="Titulito">Tus clientes</h2>
-        <button type="button" (click)="showHideCreate()" class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Crear cliente</button>
+        <button type="button" (click)="showHideCreate()" class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Crear
+            cliente</button>
     </div>
     <div class="row">
         <div class="col-4">
@@ -16,7 +17,9 @@
                                 data-toggle="modal" data-target="#exampleModalCenter">
                                 <i class="fas fa-edit" style="color:#6AB3FC"></i>
                             </button>
-                            <button type="button" (click)="deleteCliente(cliente.id)" class="btn btn-link btn-sm">
+
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#exampleModalCenter" (click)="asignarId(cliente.id)">
                                 <i class="fas fa-trash-alt" style="color:#EA4848"></i>
                             </button>
                         </td>
@@ -37,4 +40,23 @@
 <div *ngIf="edit">
     <app-cliente-edit [clienteDetail]="selectedCliente" (update)="refresh()"></app-cliente-edit>
 </div>
-
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Eliminar cliente</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ¿Estás seguro de eliminar al cliente?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" (click)="deleteCliente(deleteClienteId)" data-dismiss="modal">Sí, seguro</button>
+            </div>
+        </div>
+    </div>
+</div>

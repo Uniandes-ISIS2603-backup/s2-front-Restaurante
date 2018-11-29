@@ -17,10 +17,5 @@ export class Sucursal {
      * El promedio de calificaciones de la sucursal
      */
     promedio: number;
-    
-    /**
-     * La cantidad de mesas de la sucursal
-     */
-    numMesas: number;
 }
 

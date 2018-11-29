@@ -46,6 +46,8 @@ export class ClienteListComponent implements OnInit {
 
     edit: boolean;
 
+    deleteClienteId : number;
+
     /**
     * Muestra el cliente
     */
@@ -106,4 +108,7 @@ export class ClienteListComponent implements OnInit {
         this.ngOnInit();
     }
 
+    asignarId(id) : void{
+        this.deleteClienteId = id;
+    }
 }

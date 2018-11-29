@@ -1,5 +1,5 @@
 <div class="container" style="margin-left: 2%">
-  <h3>Acerca de este cliente</h3>
+  <h2>Acerca de este cliente</h2>
 
   <h2>Datos</h2>
   <table class="table">
@@ -23,7 +23,7 @@
 
   <div>
       <h2 style="margin-bottom: 3%" id="Titulito">Reservas</h2>
-      <button type="button" (click)="showHideCreate()" class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Crear cliente</button>
+      <button type="button" (click)="showHideCreate()" class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Crear reserva</button>
   </div>
   <table class="table" *ngIf="showReservas">
     <thead class="thead-light">
@@ -44,9 +44,8 @@
 
   <div>
       <h2 style="margin-bottom: 3%" id="Titulito">Domicilios</h2>
-      <button type="button" (click)="showHideCreate()" class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Crear cliente</button>
+      <button type="button" (click)="showHideCreate()" class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Crear domicilio</button>
   </div>
-  <h2>Domicilios</h2>
   <table class="table" style="margin-top: 2%" *ngIf="showDomicilios">
     <thead class="thead-light">
         <th>Id</th>

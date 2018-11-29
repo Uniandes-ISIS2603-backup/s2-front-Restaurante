@@ -32,8 +32,6 @@ export class SucursalListComponent implements OnInit {
    showCreate: boolean;
    
    showInfo : boolean;
-   
-   showEdit : boolean;
     
     /**
     * Muestra el autor
@@ -73,9 +71,5 @@ export class SucursalListComponent implements OnInit {
     */
     showHideCreate(): void {
         this.showCreate = !this.showCreate;
-    }
-    
-    showHideEdit() : void {
-        this.showEdit = !this.showEdit;
     }
 }

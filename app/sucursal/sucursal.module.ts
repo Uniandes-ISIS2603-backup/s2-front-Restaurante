@@ -9,7 +9,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { SucursalCreateComponent } from './sucursal-create/sucursal-create.component';
 import { FormsModule } from '@angular/forms';
-import {SucursalEditComponent} from './sucursal-edit/sucursal-edit.component';
 
 @NgModule({
   imports: [
@@ -19,7 +18,7 @@ import {SucursalEditComponent} from './sucursal-edit/sucursal-edit.component';
     HttpClientModule,
     FormsModule
   ],
-  declarations: [SucursalListComponent, SucursalDetailComponent, SucursalCreateComponent, SucursalEditComponent],
+  declarations: [SucursalListComponent, SucursalDetailComponent, SucursalCreateComponent],
   providers: [SucursalService]
 })
 export class SucursalModule { }
