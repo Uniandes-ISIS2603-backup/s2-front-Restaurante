@@ -1,0 +1,42 @@
+<div class="container-fluid" style="margin: 2% 0 0% 2%">
+    <h3>Sucursales</h3>
+    <div class="row">
+        <div class="col-md-2">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Direccion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                    <tr *ngFor="let sucursal of sucursales">
+                        <td style="cursor: pointer;" (click)="onSelected(sucursal.id)">{{sucursal.id}}</td>
+                        <td style="cursor: pointer;" (click)="onSelected(sucursal.id)">{{sucursal.direccion}}</td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="showInfo" class="alert alert-info" role="alert" style="margin: 10% 5% 5% 5%;">
+                <h3>Visualizar información</h3>
+                <p>Oprime las sucursales para ver sus detalles.</p>
+            </div>
+
+        <div class="col-md-3" id="detail">
+            <div *ngIf="selectedSucursal">
+                <app-sucursal-detail [sucursalDetail]="selectedSucursal"></app-sucursal-detail>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                (click)="showHideCreate()">Crear
+                una sucursal</button>
+            <div *ngIf="showCreate">
+                <app-sucursal-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-sucursal-create>
+            </div>
+        </div>
+    </div>
+</div>
+<iframe src="https://www.google.com/maps/d/embed?mid=1j_QpU6XM0JeZrCu8ZRSOgSqKyRvOqv-i" width="640" height="480"></iframe>
