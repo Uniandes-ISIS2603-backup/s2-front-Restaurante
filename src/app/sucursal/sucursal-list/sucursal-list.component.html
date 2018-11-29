@@ -7,6 +7,7 @@
                     <tr>
                         <th scope="col">Id</th>
                         <th scope="col">Direccion</th>
+                        <th scope="col">Editar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -14,7 +15,13 @@
                     <tr *ngFor="let sucursal of sucursales">
                         <td style="cursor: pointer;" (click)="onSelected(sucursal.id)">{{sucursal.id}}</td>
                         <td style="cursor: pointer;" (click)="onSelected(sucursal.id)">{{sucursal.direccion}}</td>
-                        
+                        <td style="cursor: pointer;">
+                            <button type="button" (click)="showEdit(); onSelected(sucursal.id)" class="btn btn-link btn-sm"
+                                data-toggle="modal" data-target="#exampleModalCenter">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -38,5 +45,8 @@
             </div>
         </div>
     </div>
+</div>
+<div *ngIf="edit">
+    <app-sucursal-edit [sucursalDetail]="selectedSucursal"></app-sucursal-edit>
 </div>
 <iframe src="https://www.google.com/maps/d/embed?mid=1j_QpU6XM0JeZrCu8ZRSOgSqKyRvOqv-i" width="640" height="480"></iframe>
