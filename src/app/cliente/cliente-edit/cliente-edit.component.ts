@@ -27,8 +27,8 @@ export class ClienteEditComponent implements OnInit {
   updateCliente(): void {
     this.clienteService.updateCliente(this.clienteDetail)
         .subscribe(() => {
-          this.router.navigate(['/clientes/' + this.clienteDetail.id]);
             this.toastrService.success("La información del cliente ha sido actualizada", "Editar Cliente");
+            this.update.emit();
         });
 }
 

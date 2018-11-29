@@ -23,12 +23,14 @@ import { FormsModule } from '@angular/forms';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { InicioComponent } from './inicio/inicio.component';
 import {NgxPermissionsModule} from 'ngx-permissions';
-import { AuthModule } from './auth/auth.module'
+import { AuthModule } from './auth/auth.module';
+import { InicioAdminComponent } from './inicio-admin/inicio-admin.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    InicioComponent  ],
+    InicioComponent,
+    InicioAdminComponent  ],
   imports: [
     BrowserModule,
     HttpClientModule,

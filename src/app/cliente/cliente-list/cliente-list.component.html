@@ -1,53 +1,40 @@
-<img src="../../../assets/Background.jpeg" id="fondo-dash">
 <div class="container-fluid" style="margin: 2% 0 0% 2%">
-    <h3>Clientes</h3>
+    <div>
+        <h2 style="margin-bottom: 3%" id="Titulito">Tus clientes</h2>
+        <button type="button" (click)="showHideCreate()" class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Crear cliente</button>
+    </div>
     <div class="row">
-        <div class="col-2">
-            <table class="table table-striped" style="background:white">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Editar</th>
-                    </tr>
-                </thead>
-                <tbody>
+        <div class="col-4">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search">
+            <table class="table">
+                <tbody id="listing-body">
                     <tr *ngFor="let cliente of clientes">
                         <td style="cursor: pointer;" (click)="onSelected(cliente.id)">{{cliente.id}}</td>
                         <td style="cursor: pointer;" (click)="onSelected(cliente.id)">{{cliente.nombre}}</td>
                         <td style="cursor: pointer;">
                             <button type="button" (click)="showEdit(); onSelected(cliente.id)" class="btn btn-link btn-sm"
                                 data-toggle="modal" data-target="#exampleModalCenter">
-                                <i class="fas fa-edit"></i>
+                                <i class="fas fa-edit" style="color:#6AB3FC"></i>
                             </button>
-                            <button type="button" (click)="deleteCliente(cliente.id)" class="btn btn-link btn-sm"
-                            data-toggle="modal" data-target="#exampleModalCenter">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
+                            <button type="button" (click)="deleteCliente(cliente.id)" class="btn btn-link btn-sm">
+                                <i class="fas fa-trash-alt" style="color:#EA4848"></i>
+                            </button>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="col-4" id="detail">
-            <div *ngIf="showInfo" class="alert alert-info" role="alert" style="margin: 20% 10% 10% 10%;">
-                <h3>Visualizar información</h3>
-                <p>Oprime alguno de los clientes para ver sus detalles.</p>
-            </div>
+        <div class="col-6" id="detail">
             <div *ngIf="selectedCliente">
                 <app-cliente-detail [clienteDetail]="selectedCliente"></app-cliente-detail>
             </div>
         </div>
-        <div class="col-3">
-            <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                (click)="showHideCreate()">Crear
-                un cliente</button>
-            <div *ngIf="showCreate">
-                <app-cliente-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-cliente-create>
-            </div>
-        </div>
     </div>
 </div>
-<div *ngIf="edit">
-    <app-cliente-edit [clienteDetail]="selectedCliente"></app-cliente-edit>
+<div *ngIf="showCreate">
+    <app-cliente-create (create)="refresh()"> </app-cliente-create>
 </div>
+<div *ngIf="edit">
+    <app-cliente-edit [clienteDetail]="selectedCliente" (update)="refresh()"></app-cliente-edit>
+</div>
+
