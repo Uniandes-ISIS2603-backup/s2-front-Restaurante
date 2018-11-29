@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ClienteCreateComponent } from './cliente-create/cliente-create.component';
 import { FormsModule } from '@angular/forms';
 import { ClienteEditComponent } from './cliente-edit/cliente-edit.component';
+import {NgxPermissionsModule} from 'ngx-permissions';
+
 
 @NgModule({
   imports: [
@@ -17,7 +19,8 @@ import { ClienteEditComponent } from './cliente-edit/cliente-edit.component';
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxPermissionsModule
   ],
   declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteEditComponent],
   providers: [ClienteService]

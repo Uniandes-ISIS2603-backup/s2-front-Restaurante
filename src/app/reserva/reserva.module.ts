@@ -10,6 +10,8 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { ReservaDetailComponent } from './reserva-detail/reserva-detail.component';
 import { ReservaCreateComponent } from './reserva-create/reserva-create.component';
 import { ReservaEditComponent } from './reserva-edit/reserva-edit.component';
+import {NgxPermissionsModule} from 'ngx-permissions';
+
 
 @NgModule({
   imports: [
@@ -19,7 +21,8 @@ import { ReservaEditComponent } from './reserva-edit/reserva-edit.component';
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPermissionsModule
   ],
   declarations: [ReservaListComponent, ReservaDetailComponent, ReservaCreateComponent, ReservaEditComponent],
   providers: [ReservaService],

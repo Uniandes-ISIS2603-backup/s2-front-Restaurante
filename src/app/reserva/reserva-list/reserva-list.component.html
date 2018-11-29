@@ -2,7 +2,7 @@
     <div class="container-fluid" style="margin: 2% 0 0% 2%">
       <div>
           <h2 style="margin-bottom: 3%" id="Titulito">Tus Reservas</h2>
-          <button type="button" (click)="showHideCreate()" class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Crear Reserva</button>
+          <button *ngxPermissionsOnly="['ADMIN']" type="button" (click)="showHideCreate()" class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Crear Reserva</button>
       </div>
     <div class="row">
         <div class="col-md-6">
@@ -14,21 +14,21 @@
                     <th>Id</th>
                     <th>Fecha</th>
                     <th>CantidadPersonas</th>
-                    <th>Modificar</th>
-                    <th>Eliminar</th>
+                    <th *ngxPermissionsOnly="['ADMIN']">Modificar</th>
+                    <th *ngxPermissionsOnly="['ADMIN']">Eliminar</th>
 
 
                     <tr *ngFor = "let reserva of reservas">
                         <td style="cursor: pointer;" (click)="onSelected(reserva.id)" >{{reserva.id}} </td>
                         <td style="cursor: pointer;" (click)="onSelected(reserva.id)">{{reserva.hora | date:"M/d/yy - h:mm a"}}</td>
                         <td style="cursor: pointer;" (click)="onSelected(reserva.id)">{{reserva.cantidadPersonas}}</td>
-                        <td style="cursor: pointer;">
+                        <td *ngxPermissionsOnly="['ADMIN']" style="cursor: pointer;">
                           <button type="button" class="btn btn-primary" (click)="showEdit(); onSelected(reserva.id, reserva.sucursal.id)"data-toggle="modal" data-target="#exampleModalCenter">
                               <i class="fas fa-edit" style="color:#6AB3FC"></i>
                               Editar
                           </button>
                         </td>
-                        <td >
+                        <td *ngxPermissionsOnly="['ADMIN']" >
                             <button class="btn btn-danger" (click)="deleteReserva(reserva.id)"><span class="fa fa-trash"></span>
 
                             </button>

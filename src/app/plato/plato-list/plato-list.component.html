@@ -1,6 +1,6 @@
 <div class="container-fluid" style="margin: 2% 0 0% 2%">
 <h3>Platos</h3>
-<button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+<button *ngxPermissionsOnly="['ADMIN']" [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
             (click)="showHideCreate()">Crear
             un plato</button>
         <div *ngIf="showCreate">
@@ -13,7 +13,7 @@
           <img class="card-img-top" src="{{plato.imagen}}" alt="Card image cap">
           <div class="card-body">
           <p class="card-text">{{plato.id}}.   {{plato.name}} :  ${{plato.precio}}</p>
-          <button type="button" class="btn btn-primary" (click)="showEdit(); onSelected(plato.id)"data-toggle="modal" data-target="#exampleModalCenter">
+          <button *ngxPermissionsOnly="['ADMIN']" type="button" class="btn btn-primary" (click)="showEdit(); onSelected(plato.id)"data-toggle="modal" data-target="#exampleModalCenter">
               Editar
             </button>
           </div>

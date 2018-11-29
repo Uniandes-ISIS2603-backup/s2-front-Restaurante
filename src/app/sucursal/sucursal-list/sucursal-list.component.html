@@ -10,11 +10,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                
+
                     <tr *ngFor="let sucursal of sucursales">
                         <td style="cursor: pointer;" (click)="onSelected(sucursal.id)">{{sucursal.id}}</td>
                         <td style="cursor: pointer;" (click)="onSelected(sucursal.id)">{{sucursal.direccion}}</td>
-                        
+
                     </tr>
                 </tbody>
             </table>
@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="col-md-3">
-            <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+            <button  *ngxPermissionsOnly="['ADMIN']" [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                 (click)="showHideCreate()">Crear
                 una sucursal</button>
             <div *ngIf="showCreate">

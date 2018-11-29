@@ -10,6 +10,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { PlatoCreateComponent } from './plato-create/plato-create.component';
 import { PlatoEditComponent } from './plato-edit/plato-edit.component';
+import {NgxPermissionsModule} from 'ngx-permissions';
+
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { PlatoEditComponent } from './plato-edit/plato-edit.component';
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxPermissionsModule
   ],
   declarations: [PlatoListComponent, PlatoCreateComponent, PlatoEditComponent],
   providers: [PlatoService],

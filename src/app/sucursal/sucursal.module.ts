@@ -9,6 +9,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { SucursalCreateComponent } from './sucursal-create/sucursal-create.component';
 import { FormsModule } from '@angular/forms';
+import {NgxPermissionsModule} from 'ngx-permissions';
+
 
 @NgModule({
   imports: [
@@ -16,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxPermissionsModule
   ],
   declarations: [SucursalListComponent, SucursalDetailComponent, SucursalCreateComponent],
   providers: [SucursalService]

@@ -1,8 +1,10 @@
 <div class="container-fluid" style="margin: 2% 0 0% 2%">
     <div>
-        <h2 style="margin-bottom: 3%" id="Titulito">Tus clientes</h2>
-        <button type="button" (click)="showHideCreate()" class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Crear
-            cliente</button>
+        <h2 style="margin-bottom: 3%" id="Titulito" >Tus clientes</h2>
+
+          <button *ngxPermissionsOnly="['ADMIN']" type="button" (click)="showHideCreate()" class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Crear
+              cliente</button>
+
     </div>
     <div class="row">
         <div class="col-4">
@@ -13,13 +15,13 @@
                         <td style="cursor: pointer;" (click)="onSelected(cliente.id)">{{cliente.id}}</td>
                         <td style="cursor: pointer;" (click)="onSelected(cliente.id)">{{cliente.nombre}}</td>
                         <td style="cursor: pointer;">
-                            <button type="button" (click)="showEdit(); onSelected(cliente.id)" class="btn btn-link btn-sm"
+                            <button *ngxPermissionsOnly="['ADMIN']" type="button" (click)="showEdit(); onSelected(cliente.id)" class="btn btn-link btn-sm"
                                 data-toggle="modal" data-target="#exampleModalCenter">
                                 <i class="fas fa-edit" style="color:#6AB3FC"></i>
                             </button>
 
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#exampleModalCenter" (click)="asignarId(cliente.id)">
+                            <button *ngxPermissionsOnly="['ADMIN']" type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#exampleModalCenter" (click)="asignarId(cliente.id)">
                                 <i class="fas fa-trash-alt" style="color:#EA4848"></i>
                             </button>
                         </td>

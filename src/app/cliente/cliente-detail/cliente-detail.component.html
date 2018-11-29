@@ -23,7 +23,7 @@
 
   <div>
       <h2 style="margin-bottom: 3%" id="Titulito">Reservas</h2>
-      <button type="button" (click)="showHideCreate()" class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Crear reserva</button>
+      <button *ngxPermissionsOnly="['ADMIN']" type="button" (click)="showHideCreate()" class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Crear reserva</button>
   </div>
   <table class="table" *ngIf="showReservas">
     <thead class="thead-light">
@@ -44,7 +44,7 @@
 
   <div>
       <h2 style="margin-bottom: 3%" id="Titulito">Domicilios</h2>
-      <button type="button" (click)="showHideCreate()" class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Crear domicilio</button>
+      <button *ngxPermissionsOnly="['ADMIN']" type="button" (click)="showHideCreate()" class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Crear domicilio</button>
   </div>
   <table class="table" style="margin-top: 2%" *ngIf="showDomicilios">
     <thead class="thead-light">
