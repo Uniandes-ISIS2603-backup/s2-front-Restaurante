@@ -1,77 +1,93 @@
-  <div class="container-fluid">
-  <div class="row">
-    <div class="col-12">
-      <br>
-      <h2 class="text-center">Añadir una reserva</h2>
-      <br>
-      <form name="reserva" (ngSubmit)="f.form.valid && createReserva()" #f="ngForm" novalidate>
+<<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLongTitle">Crear reserva</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+          <form name="reserva" (ngSubmit)="f.form.valid && createReserva()" #f="ngForm" novalidate style="margin: 0 4% 0 4%;">
+          <div class="form-group">
+            <label for="reservaDate"><b>Fecha de la reserva</b></label>
+            <div [ngClass]="{ 'is-invalid': f.submitted && reservaDate.invalid }">
+              <input class="form-control" id="reservaDate" name="reservaDate" [(ngModel)]="reserva.hora" ngbDatepicker #d="ngbDatepicker"
+              (click)="d.toggle()" #reservaDate="ngModel" [ngClass]="{'is-invalid': (reservaDate.untouched || reservaDate.invalid) }"
+              required>
+              <div class="invalid-feedback">
+                <div>Este campo es obligatorio</div>
+              </div>
+            </div>
+          </div>
 
-        <div class="form-group">
-          <label for="reservaDate"><b>Fecha de la reserva</b></label>
-          <div [ngClass]="{ 'is-invalid': f.submitted && reservaDate.invalid }">
-            <input class="form-control" id="reservaDate" name="reservaDate" [(ngModel)]="reserva.hora" ngbDatepicker #d="ngbDatepicker"
-            (click)="d.toggle()" #reservaDate="ngModel" [ngClass]="{'is-invalid': (reservaDate.untouched || reservaDate.invalid) }"
-            required>
+
+
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="reservaHoraI"><b>Hora</b></label>
+
+                  <select class="custom-select" name="reservaHoraI" id="reservaHoraI" [(ngModel)]="horaSeleccionada.hora"
+                  #reservaHoraI="ngModel" [ngClass]="{ 'is-invalid': f.submitted && reservaHoraI.invalid }" required>
+                  <option *ngFor="let horaS of horasDisponibles">{{horaS.hora}}</option>
+                </select>
+                <div class="invalid-feedback">
+                  <div>La hora es obligatoria</div>
+                </div>
+
+              </div>
+            </div>
+
+
+
+            <div class="col">
+              <div class="form-group">
+                <label for="reservaHoraIA"><b>Minuto(s)</b></label>
+                <select class="custom-select" name="reservaHoraIA" id="reservaHoraIA" [(ngModel)]="horaSeleccionada.minutos"
+                #reservaHoraIA="ngModel" [ngClass]="{ 'is-invalid': f.submitted && reservaHoraIA.invalid }" required>
+                <option value="0">00</option>
+                <option value="30">30</option>
+              </select>
+              <div class="invalid-feedback">
+                <div>Por favor indique la hora exacta</div>
+              </div>
+            </div>
+            </div>
+            </div>
+
+
+
+
+
+
+          <div class="form-group">
+            <label for="reservaPersonas"><b>Cantidad de personas</b></label>
+            <input type="text" name="reservaPersonas" class="form-control" id="reservaPersonas" [(ngModel)]="reserva.cantidadPersonas"
+            #reservaPersonas="ngModel" [ngClass]="{ 'is-invalid': f.submitted && reservaPersonas.invalid }" required>
             <div class="invalid-feedback">
               <div>Este campo es obligatorio</div>
             </div>
           </div>
-        </div>
 
-
-
-          <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label for="reservaHoraI"><b>Hora</b></label>
-
-                <select class="custom-select" name="reservaHoraI" id="reservaHoraI" [(ngModel)]="horaSeleccionada.hora"
-                #reservaHoraI="ngModel" [ngClass]="{ 'is-invalid': f.submitted && reservaHoraI.invalid }" required>
-                <option *ngFor="let horaS of horasDisponibles">{{horaS.hora}}</option>
-              </select>
-              <div class="invalid-feedback">
-                <div>La hora es obligatoria</div>
-              </div>
-
-            </div>
-          </div>
-
-
-
-          <div class="col">
-            <div class="form-group">
-              <label for="reservaHoraIA"><b>Minuto(s)</b></label>
-              <select class="custom-select" name="reservaHoraIA" id="reservaHoraIA" [(ngModel)]="horaSeleccionada.minutos"
-              #reservaHoraIA="ngModel" [ngClass]="{ 'is-invalid': f.submitted && reservaHoraIA.invalid }" required>
-              <option value="0">00</option>
-              <option value="30">30</option>
-            </select>
-            <div class="invalid-feedback">
-              <div>Por favor indique la hora exacta</div>
-            </div>
-          </div>
-          </div>
-          </div>
-
-
-
-
-
-
-        <div class="form-group">
-          <label for="reservaPersonas"><b>Cantidad de personas</b></label>
-          <input type="text" name="reservaPersonas" class="form-control" id="reservaPersonas" [(ngModel)]="reserva.cantidadPersonas"
-          #reservaPersonas="ngModel" [ngClass]="{ 'is-invalid': f.submitted && reservaPersonas.invalid }" required>
+          <div class="form-group">
+            <label for="reservaSucursal"><b>Sucursal</b></label>
+            <select class="custom-select" (input)="log($event)" name="reservaSucursal" id="reservaSucursal" [(ngModel)]="reserva.sucursal.id"
+            #reservaSucursal="ngModel" [ngClass]="{ 'is-invalid': f.submitted && reservaSucursal.invalid }" required>
+            <option [value]="sucursal.id" *ngFor="let sucursal of sucursales">{{sucursal.direccion}}</option>
+          </select>
           <div class="invalid-feedback">
             <div>Este campo es obligatorio</div>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="reservaSucursal"><b>Sucursal</b></label>
-          <select class="custom-select" (input)="log($event)" name="reservaSucursal" id="reservaSucursal" [(ngModel)]="reserva.sucursal.id"
-          #reservaSucursal="ngModel" [ngClass]="{ 'is-invalid': f.submitted && reservaSucursal.invalid }" required>
-          <option [value]="sucursal.id" *ngFor="let sucursal of sucursales">{{sucursal.direccion}}</option>
+          <label for="reservaMesa"><b>Mesa</b></label>
+          <select class="custom-select" name="reservaMesa" id="reservaMesa" [(ngModel)]="reserva.mesa.id" #reservaMesa="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && reservaMesa.invalid }" required>
+          <option [value]="mesa.id" *ngFor="let mesa of mesasDeSucursal">{{mesa.numero}}</option>
         </select>
         <div class="invalid-feedback">
           <div>Este campo es obligatorio</div>
@@ -79,41 +95,35 @@
       </div>
 
       <div class="form-group">
-        <label for="reservaMesa"><b>Mesa</b></label>
-        <select class="custom-select" name="reservaMesa" id="reservaMesa" [(ngModel)]="reserva.mesa.id" #reservaMesa="ngModel"
-        [ngClass]="{ 'is-invalid': f.submitted && reservaMesa.invalid }" required>
-        <option [value]="mesa.id" *ngFor="let mesa of mesasDeSucursal">{{mesa.numero}}</option>
+        <label for="reservaCliente"><b>Cliente</b></label>
+        <select class="custom-select" name="reservaCliente" id="reservaCliente" [(ngModel)]="reserva.cliente.id"
+        #reservaCliente="ngModel" [ngClass]="{ 'is-invalid': f.submitted && reservaCliente.invalid }" required>
+        <option [value]="cliente.id" *ngFor="let cliente of clientes">{{cliente.nombre}}</option>
       </select>
       <div class="invalid-feedback">
-        <div>Este campo es obligatorio</div>
+        <div>El cliente es obligatorio</div>
       </div>
     </div>
 
-    <div class="form-group">
-      <label for="reservaCliente"><b>Cliente</b></label>
-      <select class="custom-select" name="reservaCliente" id="reservaCliente" [(ngModel)]="reserva.cliente.id"
-      #reservaCliente="ngModel" [ngClass]="{ 'is-invalid': f.submitted && reservaCliente.invalid }" required>
-      <option [value]="cliente.id" *ngFor="let cliente of clientes">{{cliente.nombre}}</option>
-    </select>
-    <div class="invalid-feedback">
-      <div>El cliente es obligatorio</div>
+    <br>
+    <div class="row form-inline justify-content-center align-self-center" >
+
+    <button type="submit" class="btn btn-primary" style="margin-right: 10px" > Crear</button>
+
+
+    <button type="button" class="btn btn-danger" data-dismiss="modal" style="margin-right: 10px"  >Cancelar</button>
+
+
+    <button type="button" class="btn btn-success" data-dismiss="modal"  style="margin-right: 10px"> Finalizar </button>
+
+    </div>
+
+
+        </form>
+    </div>
+    <div class="modal-footer">
+
     </div>
   </div>
-
-
-
-
-
-  <br>
-  <div class="row form-inline justify-content-center align-self-center">
-  <button type="submit" class="btn btn-primary">Create</button>
-  <div class="divider"></div>
-  <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
-  </div>
-  </form>
-  <br>
-  </div>
-  </div>
-  </div>
-  <br>
-  <br>
+</div>
+</div>

@@ -91,4 +91,8 @@ export class ReservaListComponent implements OnInit {
             ]
         });
     }
+
+    refresh() : void {
+        this.ngOnInit();
+    }
 }

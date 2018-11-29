@@ -1,21 +1,15 @@
 
-    <div class="container-fluid">
+    <div class="container-fluid" style="margin: 2% 0 0% 2%">
+      <div>
+          <h2 style="margin-bottom: 3%" id="Titulito">Tus Reservas</h2>
+          <button type="button" (click)="showHideCreate()" class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Crear Reserva</button>
+      </div>
     <div class="row">
-        <div class="col-md-4">
-            <br>
-            <div class="row justify-content-center align-self-center">
-                          <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                              (click)="showHideCreate()">Crear una reserva</button>
-            </div>
-            <br>
-            <br>
-            <table class="table table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th colspan="5">Reservas</th>
-                    </tr>
-                </thead>
-                <tbody>
+        <div class="col-md-6">
+
+            <table class="table">
+
+                <tbody  id="listing-body">
 
                     <th>Id</th>
                     <th>Fecha</th>
@@ -25,18 +19,19 @@
 
 
                     <tr *ngFor = "let reserva of reservas">
+                        <td style="cursor: pointer;" (click)="onSelected(reserva.id)" >{{reserva.id}} </td>
+                        <td style="cursor: pointer;" (click)="onSelected(reserva.id)">{{reserva.hora | date:"M/d/yy - h:mm a"}}</td>
+                        <td style="cursor: pointer;" (click)="onSelected(reserva.id)">{{reserva.cantidadPersonas}}</td>
                         <td style="cursor: pointer;">
-                            <dd class="figure-caption" routerLink="/reservas/{{reserva.id}}">{{reserva.id}}</dd>
-                        </td>
-                        <td>{{reserva.hora | date:"M/d/yy - h:mm a"}}</td>
-                        <td>{{reserva.cantidadPersonas}}</td>
-                        <td>
                           <button type="button" class="btn btn-primary" (click)="showEdit(); onSelected(reserva.id, reserva.sucursal.id)"data-toggle="modal" data-target="#exampleModalCenter">
+                              <i class="fas fa-edit" style="color:#6AB3FC"></i>
                               Editar
                           </button>
                         </td>
                         <td >
-                            <button class="btn btn-danger" (click)="deleteReserva(reserva.id)"><span class="fa fa-trash"></span></button>
+                            <button class="btn btn-danger" (click)="deleteReserva(reserva.id)"><span class="fa fa-trash"></span>
+
+                            </button>
                         </td>
 
 
@@ -47,15 +42,23 @@
 
             </table>
         </div>
-        <div class="col-md-8">
-            <div *ngIf="showCreate">
-                <app-reserva-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-reserva-create>
+
+
+
+        <div class="col-md-6" id="detail">
+            <div *ngIf="selectedReserva">
+                <app-reserva-detail [reservaDetail]="selectedReserva"></app-reserva-detail>
             </div>
         </div>
 
     </div>
 </div>
 
+
+
 <div *ngIf="edit">
-    <app-reserva-edit [reserva_id]="reserva_id" ></app-reserva-edit>
+    <app-reserva-edit [reserva_id]="reserva_id" (update)="refresh()"></app-reserva-edit>
+</div>
+<div *ngIf="showCreate">
+    <app-reserva-create (create)="refresh()"> </app-reserva-create>
 </div>
