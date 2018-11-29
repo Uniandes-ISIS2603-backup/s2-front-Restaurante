@@ -2,33 +2,19 @@
     <h3>Sucursales</h3>
     <div class="row">
         <div class="col-md-2">
-<<<<<<< HEAD
-            <table class="table table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Direccion</th>
-                    </tr>
-                </thead>
-                <tbody>
 
-                    <tr *ngFor="let sucursal of sucursales">
-                        <td style="cursor: pointer;" (click)="onSelected(sucursal.id)">{{sucursal.id}}</td>
-                        <td style="cursor: pointer;" (click)="onSelected(sucursal.id)">{{sucursal.direccion}}</td>
-
-=======
             <table class="table">
                 <tbody id="listing-body">
                     <tr *ngFor="let sucursal of sucursales">
                         <td style="cursor: pointer;" (click)="onSelected(sucursal.id)">{{sucursal.direccion}}
 
-                            <button type="button" (click)="showEdit(); onSelected(sucursal.id)" class="btn btn-link btn-sm"
+                            <button *ngxPermissionsOnly="['ADMIN']" type="button" (click)="showEdit(); onSelected(sucursal.id)" class="btn btn-link btn-sm"
                                 data-toggle="modal" data-target="#exampleModalCenter">
                                 <i class="fas fa-edit"></i>
                             </button>
 
                         </td>
->>>>>>> de59162ea80c7b07120045cfd1973e4e6f6fd9ac
+
                     </tr>
                 </tbody>
             </table>
